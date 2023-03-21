@@ -1,0 +1,10 @@
+
+/* allmeals list diusplay times */
+td.mealtimesTd {
+    padding: 5px 0px 5px 10px;
+    text-align: left;
+    border-bottom: dashed #526861;
+    border-left: solid 5px #526861;
+
+  }
+  

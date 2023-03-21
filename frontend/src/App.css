@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "apple-chancery", sans-serif;
+  color: #2c2219;
+  /* font-size: 20px; */
+}
+
+body {
+  background-color: #e6c593;
+}
+
+p {
+  font-size: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #7c262b;
+  color: #7c262b;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 100px;
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #f0e1b2;
+  background-color: #7c262b;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:active {
+  color: #f0e1b2;
+  background-color: #7c262b;
+  box-shadow: 0 5px #526861;
+  transform: translateY(4px);
+}
+
+.noBorder {
+  border: none;
+  margin-bottom: .5vh;
+}
+.container {
+  max-width: 100%;
+  overflow: auto;
+  text-align: center;
+  margin: 0 1rem 5rem 1rem;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 4vh;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+a {
+  color: #bb745c;
+  font-style: italic;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: #7c262b;
+  text-decoration: underline;
+}
+
+/* tr:hover {
+  background-color: #5268615e;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+} */
+
+input, textarea {
+  border-radius: 5px;
+  background-color: #f0e1b2;
+  border: solid 2px #7c262b;
+}
+
+input:focus{
+  border: solid 2.5px #526861 ;
+}
+textarea:focus{
+  border: solid 3px #526861 ;
+  padding: 2px;
+}
+textarea{
+  padding: 3px;
+}
+
+.tableContainter{
+  margin: auto;
+  width: 90%;
+  margin-bottom: 30vh;
+  /* border: solid; */
+}
+
+/* table Classes */
+.scheduleTable,
+.allMealsTable,
+.useMealsTable
+{
+  border: 5px solid #526861;
+  padding: 0.25em;
+  margin: auto;
+  width: 90%;
+  font-size: 1.5em;
+  border-collapse: collapse;
+  /* font-size: 1.25em; */
+}
+
+.allMealsTable,
+.useMealsTable {
+  margin-top: 2rem;
+}
+
+
+/* th classes */
+.MealScheduleTableTh,
+.timeHeader,
+.allMealsTh, 
+.userMealsTh
+ {
+  font-size: 2rem;
+  padding: 0.25em;
+  font-weight: lighter;
+  background-color: #526861cc;
+  border: 5px solid #526861;
+}
+
+/* td classes */
+.mealURLTd,
+.mealTd,
+.isCooked,
+.displaytimesTd,
+.allMealsTd,
+.mealTimesTd,
+.userMealsTd,
+.times,
+.addRemoveTd
+{
+  /* border-collapse: collapse; */
+  border-bottom: dashed #526861;
+  border-left: solid 5px #526861;
+  font-size: 1em;
+  padding: 0;
+}
+
+/* Icons for MealSchedule, AllMeals, and MyMeals */
+.fa-regular,
+.far {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+ul {
+  list-style: none;
+}
+h3{
+  margin-bottom: 3px;
+}
+
+/* https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
+
+/* Evergreen: Hex #526861
+
+Burgundy: Hex #7c262b
+
+Pale Red: Hex #bb745c
+
+Soft Gold: Hex #e6c593
+
+Yellow Creme: Hex #f0e1b2
+
+Dark Charcoal: Hex #2c2219 */
+
+/* tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: green;
+  border-style: solid;
+  border-width: 0;
+} */
+
+/* overflow-y: scroll; */
+/* apple sd gothic neo light */

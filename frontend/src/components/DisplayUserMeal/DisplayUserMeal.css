@@ -1,0 +1,104 @@
+.iconNameTimesEditContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    align-items: flex-start;
+  }
+  button.deleteIngredientButton {
+    border: none;
+    font-size: .9rem;
+  }
+  
+  .RecipeURLAndAddButtonContainer {
+    width: 50%;
+    margin-left: auto;
+    text-align: left;
+    padding-left: 1.6vw;
+    padding-right: 2.5vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vh;
+}
+  div.RecipeURLAndAddButtonContainer > button.noBorder {
+  transform: none;
+  font-size: 1.5rem;
+  }
+  div.editDeleteButtonContainer > div.deleteButtonContainer > button.noBorder {
+  font-size: 1.4rem;
+  }
+  
+  
+  /* DisplayMeal */
+  /* relying on these styles in DisplayMeal.css */
+  /* .mealViewContainer {
+      width: fit-content;
+      border: solid 3px #7c262b;
+      border-radius: 17px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+    } */
+    
+  
+    /* relying on this style in DisplayMeal.css */
+  
+    /* .mealTitleContainer {
+      border: solid 3px #7c262b;
+      margin-left: 1vw;
+      margin-right: 1vw;
+      width: fit-content;
+    }
+    
+    h1.mealTitle {
+      font-size: 3rem;
+      padding: .5vw 1vw .5vw 1vw;
+      font-style: italic;
+      font-family: apple-sd-gothic-light;
+      font-weight: 100;
+      letter-spacing: 3px;
+    } */
+    
+    /* .iconContainer {
+      margin-left: 0.5vw;
+    }
+     */
+    /* .displayTimeMealView {
+      margin-right: 1vw;
+      width: fit-content;
+      border: dashed 3px #7c262b;
+      border-radius: 6px;
+      padding: 1.25rem 1rem 0 1rem;
+    } */
+    
+    /* .ingredientAndNotesContainer {
+      display: flex;
+      margin: 3vh 3vw 0 3vw;
+    } */
+    
+  
+  
+    
+    /* h2 {
+      margin-bottom: 4px;
+      text-decoration:underline ;
+      font-style: italic;
+    }
+    
+    .mealNotes {
+      border-left: solid 2px #7c262b;
+      padding-left: 1vw;
+      width: 50%;
+      text-align: left;
+    } */
+    
+    
+    /* p.mealNotesP {
+      font-size: 1rem;
+    }
+     */
+    /* .addButtonContainerUserView {
+      width: 7%;
+      margin-left: auto;
+    } */
+    

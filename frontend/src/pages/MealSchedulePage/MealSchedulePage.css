@@ -1,0 +1,86 @@
+h1.Welcome {
+  margin: 3px;
+}
+
+td.isCooked {
+  width: 12%;
+}
+
+.removeButton {
+  margin-right: 9px;
+}
+
+.displayTimesContainer {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-left: 10px;
+}
+
+td.displaytimesTd {
+  width: 15%;
+}
+
+i.fa-regular.fa-trash-can {
+  font-size: 1.75em;
+}
+
+button.noBorderTrashCan {
+  border: none;
+}
+
+.trashCanContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  /* border: solid; */
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+  p.firstLineP {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #7c262b;
+}
+p.secondLineP{
+  font-style: italic;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+
+.homePageFillerDiv {
+  margin-top: 4vh;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f0e1b2;
+  border: solid 3px #7c262b;
+  border-radius: 10px;
+  padding: 1vw
+}
+
+.clearScheduleToolTip{
+  /* display:inline-block;
+  position:fixed; */
+  background-color:#5268612c;
+  margin-right: 3px;
+  /* margin-bottom: 10vh; */
+  /* border: solid 2px #526861; */
+  border-radius: 5px;
+  padding: 9px;}
+  /* width: 100px;
+https://www.w3schools.com/howto/howto_css_tooltip.asp
+  
+/* Evergreen: Hex #526861
+
+Burgundy: Hex #7c262b
+
+Pale Red: Hex #bb745c
+
+Soft Gold: Hex #e6c593
+
+Yellow Creme: Hex #f0e1b2
+
+Dark Charcoal: Hex #2c2219 */

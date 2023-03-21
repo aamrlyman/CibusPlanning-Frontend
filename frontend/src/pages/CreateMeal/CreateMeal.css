@@ -1,0 +1,40 @@
+.fillerIngredientAndNotesContainer {
+    display: flex;
+    margin: 3vh 1vw 0 1vw;
+}
+
+.blankIngredientsContainer {
+    width: 50%;
+    text-align: left;
+    padding-right: 1vw;
+}
+
+.createNotes {
+    border-left: solid 2px #7c262b;
+    padding-left: 1vw;
+    width: 50%;
+    text-align: left;
+}
+
+.createMealSaveContainer {
+    align-items: center;
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.createRecipeURLContainer {
+    width: 52%;
+    margin-left: auto;
+    text-align: left;
+    padding-left: 2vw;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+}
+
+input.createLinkInput {
+    width: 95%;
+    padding: 1px 5px;
+    color: #bb745c;
+    font-style: italic;
+    margin-top: 1vh;
+}

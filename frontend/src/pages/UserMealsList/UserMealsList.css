@@ -1,0 +1,30 @@
+
+/* pencil icon in userMealsList */
+i.fa-solid.fa-pencil {
+    font-size: 1.5em;
+  }
+  
+  /* pencil icon in userMealsList */
+  span.editMeals {
+    margin-left: 5px;
+  }
+  
+  /* addRemove column userMealsList */
+  .addRemoveContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  td.addRemoveTd {
+    width: 11%;
+  }
+
+  td.times {
+    text-align: left;
+    padding-left: 13px;
+    width: 13%;
+    border-right: none;
+    padding-bottom: 7px; 
+    padding-top: 7px; 
+  }
+  

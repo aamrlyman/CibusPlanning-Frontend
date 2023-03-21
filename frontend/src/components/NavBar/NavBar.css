@@ -1,0 +1,66 @@
+.navLi {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  align-items: center;
+}
+
+.navLi li {
+  font-size: 1.75rem;
+}
+
+.navBar {
+  background: #f0e1b2;
+  box-shadow: 4px 2px 5px gray;
+  margin-bottom: 4px;
+  padding: 1.5rem 2rem;
+}
+
+.navBar button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.4rem 0.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #2c2219;
+  font-style: normal;
+}
+.navLinkActive {
+  text-decoration: none;
+  color: #7c262b;
+  font-weight: bold;
+  font-style: normal;
+}
+.navLinkActive:hover{
+  text-decoration: none;
+}
+
+
+.brand {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+span.plusIcon {
+  position: relative;
+  left: 0.5vw;
+  top: -1.5vh;
+}
+
+hr {
+  border: 2px solid #7c262b;
+  border-radius: 31.25px;
+}
+
+.homeLinkHr{
+  border: 2px solid #7c262b;
+}
+/* .homeLinkHr:hover{
+  border: 2px solid #bb745c;
+} */
+.placeholderHr{
+  border: solid 2px #f0e1b2;
+}

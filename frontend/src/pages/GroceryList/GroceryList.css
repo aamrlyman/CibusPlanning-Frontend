@@ -1,0 +1,122 @@
+.groceryListContainer{
+    margin-top: 3vh;
+}
+
+.sortOptions {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  align-items: center;
+  width: 40%;
+  margin-right: auto;
+  margin-left: 29vw;
+}
+
+.ingredientsOnlyContainer,
+.mealCountContainer,
+.mealNamesContainer, 
+.quantitiesContainer,
+.everythingContainer 
+{
+  /* border: solid; */
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: 27vw;
+  /* border: solid; */
+}
+
+
+.groceriesTable {
+  border: none;
+  padding: 0;
+  margin: 0.75rem;
+}
+
+.groceriesTh {
+  text-align: left;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  text-decoration: underline;
+  padding-right: 12px;
+  /* color: #2c2219; */
+  /* border: solid; */
+}
+
+/* copy icon */
+i.fa-regular.fa-clone {
+  font-size: 1.25rem;
+}
+
+
+.groceriesTd,
+.mealNamesP,
+.quantitiesP,
+.quantitiesTd,
+.mealNamesTd,
+.ingredientMealNamesTd,
+.everythingTd
+ {
+  text-align: left;
+  font-size: 1rem;
+  padding-right: 12px;
+  /* border: solid; */
+}
+
+
+.mealNamesP, 
+.quantitiesP
+{
+    margin-left: 1px;
+}
+
+td.mealNamesTd,
+td.ingredientMealNamesTd, 
+td.quantitiesTd,
+td.everythingTd, 
+td.mealCountTd
+{
+  border-bottom: dashed 1px #526861;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+span.copyButtonSpan {
+    font-size: .75em;
+    font-style: italic;
+}
+
+.checkBoxCaveat {
+  font-style: italic;
+  font-size: .75rem 
+}
+
+.toolTip{
+  display:inline-block;
+  position:fixed;
+  background-color:#52686157;
+  margin-left: 3px;
+  /* border: solid 2px #526861; */
+  border-radius: 5px;
+  padding: 1px;
+  width: 100px;
+}
+
+.copyButton{
+  border: none;
+  margin: 0;
+}
+
+/* 
+Evergreen: Hex #526861
+
+Burgundy: Hex #7c262b
+
+Pale Red: Hex #bb745c
+
+Soft Gold: Hex #e6c593
+
+Yellow Creme: Hex #f0e1b2
+
+Dark Charcoal: Hex #2c2219 */
