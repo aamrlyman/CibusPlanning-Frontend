@@ -41,7 +41,9 @@ const DisplayUserMeal = ({
       alert("You can't delete a meal that is being used on a schedule");
     }
   };
-
+  function afterDelete(){
+    navigate("/userMealsList/");
+  }
   return (
     <div className="mealViewContainer">
       <div className="iconNameTimesEditContainer">
@@ -62,7 +64,7 @@ const DisplayUserMeal = ({
           >
             <i className="fa-solid fa-pencil"></i>
           </button>
-          <DeleteUserMeal meal={meal} />
+          <DeleteUserMeal meal={meal} afterDelete={afterDelete} />
         </div>
       </div>
 

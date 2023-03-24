@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { URL_HOST } from "../../urlHost";
 
-const DeleteUserMeal = ({ meal, fetchMeals }) => {
+const DeleteUserMeal = ({ meal, afterDelete }) => {
   const [user, token] = useAuth();
   //   const { mealId } = useParams();
   const navigate = useNavigate();
@@ -27,9 +27,7 @@ const DeleteUserMeal = ({ meal, fetchMeals }) => {
           },
         }
       );
-      if (window.location.href === `http://localhost:3000/userMealsList/`) {
-        fetchMeals();
-      } else navigate("/userMealsList/");
+      afterDelete();
       console.log(response);
     } catch (error) {
       console.log(error.message);
@@ -40,7 +38,7 @@ const DeleteUserMeal = ({ meal, fetchMeals }) => {
 
   return (
     <div className="deleteButtonContainer">
-      <button className="noBorder" type="button" onClick={() => deleteMeal()}>
+      <button className="noBorder" type="button" onClick={() => deleteMeal(afterDelete)}>
         <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>

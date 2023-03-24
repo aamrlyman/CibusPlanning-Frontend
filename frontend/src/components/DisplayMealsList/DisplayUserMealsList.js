@@ -60,7 +60,7 @@ const DisplayUserMealList = ({
         </span>
            <span>
             {isDelete && meal && (
-          <DeleteUserMeal meal={meal} fetchMeals={fetchMeals} />
+          <DeleteUserMeal meal={meal} afterDelete={fetchMeals} />
       )}
             </span> 
         </div>
