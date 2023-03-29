@@ -38,7 +38,7 @@ const DisplayAllMealIngredients = (props) => {
           <Fragment key={ingredient.id + "amic"}>
             <li key={ingredient.id}>
               <span className="quantities">
-                {ingredient.quantity} {ingredient.unit}{" "}
+                {ingredient.quantity === 0? '': ingredient.quantity} {ingredient.unit}{" "}
               </span>
               {ingredient.name}
             </li>
