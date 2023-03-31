@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { useOutletContext, Link } from "react-router-dom";
 import "./UserMealsList.css";
 import { URL_HOST } from "../../urlHost";
+import EmptyUserMealList from "./EmptyUserMealList";
 
 const UserMealsList = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
@@ -34,24 +35,7 @@ const UserMealsList = () => {
   return (
     <div className="tableContainter">
       {!meals || meals.length < 1 ? (
-        <div className="homePageFillerDiv">
-          <p className="firstLineP">You don't have any custom meals!</p>
-          <p className="secondLineP">
-            Click the{" "}
-            <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
-              +
-            </Link>{" "}
-            to create custom meals of your own.{" "}
-          </p>
-          <br />
-          <p className="thirdlineP">
-            Edit or delete your meals by clicking the{" "}
-            <span style={{ color: "#7c262b" }}>
-              <i className="fa-solid fa-pencil"></i>
-            </span>{" "}
-            or the <Link to="">meal name</Link>.
-          </p>
-        </div>
+        <EmptyUserMealList />
       ) : (
         <table className="useMealsTable">
           <thead>

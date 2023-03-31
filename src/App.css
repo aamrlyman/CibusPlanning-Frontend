@@ -10,7 +10,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: "apple-chancery", sans-serif;
+  font-family: sans-serif, serif;
   color: #2c2219;
   /* font-size: 20px; */
 }
@@ -116,7 +116,7 @@ textarea{
 .tableContainter{
   margin: auto;
   width: 90%;
-  margin-bottom: 30vh;
+  margin-bottom: 14vh;
   /* border: solid; */
 }
 

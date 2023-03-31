@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 import cibuslogo2 from "../../cibuslogo2.png";
-// import CibusLogo2 from "../../../public/CibusLogo2.png";
+import CibusLogo from "../../CibusLogo.png";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -38,7 +38,7 @@ const Navbar = () => {
                 to="/"
                 onClick={() => changeLocation(user, "home")}
               >
-                <img src={cibuslogo2} width="400" height="100" />
+                <img src={CibusLogo} width="45" height="45" />
               </Link>
               {location === "home" && user ? (
                 <hr />
@@ -53,14 +53,26 @@ const Navbar = () => {
                 to="/"
                 onClick={() => changeLocation(user, "home")}
               >
-                <img src={cibuslogo2} width="400" height="100" />
+                <img src={CibusLogo} width="45" height="45" />
               </Link>
-              {location === "home" && user ? (
-                <hr />
-              ) : (
-                <hr className="placeholderHr" />
-              )}
+              <hr className="placeholderHr" />
             </div>
+          )}
+        </li>
+        <li>
+          {location !== "home" ? (
+            <Link
+              className="navLink"
+              to="/"
+              onClick={() => changeLocation(user, "home")}
+            >
+              Planned Meals
+            </Link>
+          ) : (
+            <Link to="/" className="navLinkActive">
+              Planned Meals
+              <hr />
+            </Link>
           )}
         </li>
         <li>
@@ -86,11 +98,11 @@ const Navbar = () => {
               className="navLink"
               onClick={() => changeLocation(user, "userMealsList/")}
             >
-              My Meals
+              Custom Meals
             </Link>
           ) : (
             <Link to="userMealsList/" className="navLinkActive">
-              My Meals
+              Custom Meals
             </Link>
           )}
           <span className="plusIcon">
