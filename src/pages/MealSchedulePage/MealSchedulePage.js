@@ -22,12 +22,14 @@ const MealSchedulePage = () => {
       {!scheduledMeals || scheduledMeals.length < 1 ? (
         <div className="homePageFillerDiv">
           <p className="firstLineP">
-            Looks like you haven't planned any meals yet!
+            Looks like you haven't planned any meals!
           </p>
           <p className="secondLineP">
             Go to <Link to="/mealsList">All Meals</Link> and click the{" "}
             <span style={{ color: "#7c262b" }}>
-            <Link to="/mealsList"><i className="fa-solid fa-circle-plus"></i></Link>
+              <Link to="/mealsList">
+                <i className="fa-solid fa-circle-plus"></i>
+              </Link>
             </span>{" "}
             to add pre-made meals to your meal plan, Or Click on the{" "}
             <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
@@ -35,6 +37,17 @@ const MealSchedulePage = () => {
             </Link>{" "}
             to create and add some of your own.
           </p>
+          <div className="iFrameContainer">
+          <iframe
+            className="responsive-iframe"
+            id="ytplayer"
+            type="text/html"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/Poen46GZpvE?autoplay=1&origin=http://example.com`}
+            frameborder="0"
+            ></iframe>
+            </div>
         </div>
       ) : (
         <div className="tableContainter">
@@ -73,12 +86,13 @@ const MealSchedulePage = () => {
             >
               <i className="fa-regular fa-trash-can"></i>
             </button>
-            { isHovered?
-            <div className="clearScheduleToolTip">
-              <span className="copyButtonSpan">Clear Meal Schedule</span>
-            </div>:
-            ""
-            }
+            {isHovered ? (
+              <div className="clearScheduleToolTip">
+                <span className="copyButtonSpan">Clear Meal Schedule</span>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       )}

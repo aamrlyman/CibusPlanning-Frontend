@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import DisplayUserMealsList from "../../components/DisplayMealsList/DisplayUserMealsList";
 import useAuth from "../../hooks/useAuth";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import "./UserMealsList.css";
 import { URL_HOST } from "../../urlHost";
 
@@ -33,44 +33,65 @@ const UserMealsList = () => {
 
   return (
     <div className="tableContainter">
-      <table className="useMealsTable">
-        <thead>
-          <tr>
-            <th className="userMealsTh">Scheduled</th>
-            <th className="userMealsTh">Meal</th>
-            <th className="userMealsTh">Recipe Url</th>
-            <th className="userMealsTh">Time</th>
-            <th className="userMealsTh">
-              Add
-              <span className="editMeals">
-              <button
-                className="noBorder"
-                type="button"
-                onClick={() => setIsDelete(!isDelete)}
-              >
-                <i className="fa-solid fa-pencil"></i>
-              </button>
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {meals &&
-            meals.map((meal) => (
-              <Fragment key={meal.id}>
-                <DisplayUserMealsList
-                  meal={meal}
-                  scheduleId={schedule && schedule.id}
-                  scheduledMeals={scheduledMeals}
-                  getScheduledMeals={getScheduledMeals}
-                  isDelete={isDelete}
-                  fetchMeals={fetchMeals}
-                  removeMealFromSchedule={removeMealFromSchedule}
-                />
-              </Fragment>
-            ))}
-        </tbody>
-      </table>
+      {!meals || meals.length < 1 ? (
+        <div className="homePageFillerDiv">
+          <p className="firstLineP">You don't have any custom meals!</p>
+          <p className="secondLineP">
+            Click the{" "}
+            <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
+              +
+            </Link>{" "}
+            to create custom meals of your own.{" "}
+          </p>
+          <br />
+          <p className="thirdlineP">
+            Edit or delete your meals by clicking the{" "}
+            <span style={{ color: "#7c262b" }}>
+              <i className="fa-solid fa-pencil"></i>
+            </span>{" "}
+            or the <Link to="">meal name</Link>.
+          </p>
+        </div>
+      ) : (
+        <table className="useMealsTable">
+          <thead>
+            <tr>
+              <th className="userMealsTh">Scheduled</th>
+              <th className="userMealsTh">Meal</th>
+              <th className="userMealsTh">Recipe Url</th>
+              <th className="userMealsTh">Time</th>
+              <th className="userMealsTh">
+                Add
+                <span className="editMeals">
+                  <button
+                    className="noBorder"
+                    type="button"
+                    onClick={() => setIsDelete(!isDelete)}
+                  >
+                    <i className="fa-solid fa-pencil"></i>
+                  </button>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {meals &&
+              meals.map((meal) => (
+                <Fragment key={meal.id}>
+                  <DisplayUserMealsList
+                    meal={meal}
+                    scheduleId={schedule && schedule.id}
+                    scheduledMeals={scheduledMeals}
+                    getScheduledMeals={getScheduledMeals}
+                    isDelete={isDelete}
+                    fetchMeals={fetchMeals}
+                    removeMealFromSchedule={removeMealFromSchedule}
+                  />
+                </Fragment>
+              ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

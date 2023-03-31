@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
 import axios from "axios";
 import { URL_HOST } from "../../urlHost";
+import {useRef} from "react";
 
 let initialValues = {
   name: "",
@@ -12,12 +13,20 @@ let initialValues = {
   meal_id: null,
 };
 
+const useFocus = () => {
+  const htmlElRef = useRef(null)
+  const setFocus = () => {htmlElRef.current &&  htmlElRef.current.focus()}
+  return [ htmlElRef, setFocus ] 
+  // https://stackoverflow.com/questions/28889826/how-to-set-focus-on-an-input-field-after-rendering/54159564#54159564
+}
+
 const AddIngredient = ({
   fetchIngredients,
   isAddIngredient,
   setIsAddIngredient,
 }) => {
   const { mealId } = useParams();
+  const [inputRef, setInputFocus] = useFocus();
   const [user, token] = useAuth();
   const navigate = useNavigate();
   const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
@@ -25,6 +34,7 @@ const AddIngredient = ({
     postIngredient
   );
   formData.meal_id = mealId;
+
 
   async function postIngredient() {
     try {
@@ -39,6 +49,7 @@ const AddIngredient = ({
       );
       fetchIngredients();
       reset();
+      setInputFocus();
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -64,12 +75,14 @@ const AddIngredient = ({
               <td className="ingredientNameTd">
                 <label>
                   <input
+                    ref={inputRef}
                     className="ingredientNameInput"
                     type="text"
                     placeholder=" Ingredient Name"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
+                    autoFocus
                   ></input>
                 </label>
               </td>

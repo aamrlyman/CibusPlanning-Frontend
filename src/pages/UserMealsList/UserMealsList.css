@@ -28,3 +28,8 @@ i.fa-solid.fa-pencil {
     padding-top: 7px; 
   }
   
+  p.thirdlineP {
+    font-weight: 100;
+    font-size: 1.1rem;
+    margin-top: 0;
+}
