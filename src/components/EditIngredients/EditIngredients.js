@@ -65,7 +65,7 @@ const EditIngredients = ({
                     onChange={handleInputChange}
                   ></input>
                 </td>
-                <td>
+                {/* <td>
                   <input
                     className="ingredientQuantityInput"
                     type="number"
@@ -77,13 +77,13 @@ const EditIngredients = ({
                     }
                     onChange={handleInputChange}
                   ></input>
-                </td>
+                </td> */}
                 <td className="unitTd">
                   <input
                     className="ingredientUnitInput"
                     type="text"
                     name="unit"
-                    placeholder="unit"
+                    placeholder="Quantity"
                     value={formData.unit}
                     onChange={handleInputChange}
                   ></input>

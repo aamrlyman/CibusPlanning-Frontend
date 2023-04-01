@@ -86,7 +86,7 @@ const AddIngredient = ({
                   ></input>
                 </label>
               </td>
-              <td>
+              {/* <td>
                 <label>
                   <input
                     className="ingredientQuantityInput"
@@ -100,12 +100,12 @@ const AddIngredient = ({
                     onChange={handleInputChange}
                   ></input>
                 </label>
-              </td>
+              </td> */}
               <td className="ingredientInputTd">
                 <label>
                   <input
                     className="ingredientUnitInput"
-                    placeholder="unit"
+                    placeholder="Quantity"
                     type="text"
                     name="unit"
                     value={formData.unit}

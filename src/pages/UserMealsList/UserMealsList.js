@@ -45,7 +45,7 @@ const UserMealsList = () => {
               <th className="userMealsTh">Recipe Url</th>
               <th className="userMealsTh">Time</th>
               <th className="userMealsTh">
-                Add
+                <Link className="tableAddMealLink" to="/createMeal">Add</Link>
                 <span className="editMeals">
                   <button
                     className="noBorder"
