@@ -38,7 +38,7 @@ const Navbar = () => {
                 to="/"
                 onClick={() => changeLocation(user, "home")}
               >
-                <img src={CibusLogo} width="45" height="45" />
+                <img src={CibusLogo} width="70" height="70" />
               </Link>
               {location === "home" && user ? (
                 <hr />
@@ -53,9 +53,10 @@ const Navbar = () => {
                 to="/"
                 onClick={() => changeLocation(user, "home")}
               >
-                <img src={CibusLogo} width="45" height="45" />
+                <img src={CibusLogo} width="70" height="70" />
               </Link>
               <hr className="placeholderHr" />
+
             </div>
           )}
         </li>
