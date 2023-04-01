@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { URL_HOST } from "../../urlHost";
+import DuplicateIngredientButton from "../DuplicateIngredient/DuplicateIngredientButton";
 
 const DisplayIngredients = ({
   ingredient,
@@ -47,6 +48,12 @@ const DisplayIngredients = ({
                 {ingredient.quantity === 0 ? "" : ingredient.quantity}{" "}
                 {ingredient.unit === "" ? "" : ingredient.unit}{" "}
                 {ingredient.name}
+              </td>
+              <td>
+                <DuplicateIngredientButton
+                  fetchIngredients={fetchIngredients}
+                  ingredient={ingredient}
+                />
               </td>
               <td>
                 <button
