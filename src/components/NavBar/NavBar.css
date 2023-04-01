@@ -50,17 +50,11 @@ span.plusIcon {
   top: -1.5vh;
 }
 
-hr {
+hr, .homeLinkHr {
   border: 2px solid #7c262b;
   border-radius: 31.25px;
 }
 
-.homeLinkHr{
-  border: 2px solid #7c262b;
-}
-/* .homeLinkHr:hover{
-  border: 2px solid #bb745c;
-} */
 .placeholderHr{
   border: solid 2px #f0e1b2;
 }

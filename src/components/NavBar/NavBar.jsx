@@ -31,33 +31,17 @@ const Navbar = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
+          <Link
+            className="navLink"
+            to="/"
+            onClick={() => changeLocation(user, "home")}
+          >
+            <img src={CibusLogo} width="70" height="70" />
+          </Link>
           {isHovered ? (
-            <div>
-              <Link
-                className="navLink"
-                to="/"
-                onClick={() => changeLocation(user, "home")}
-              >
-                <img src={CibusLogo} width="70" height="70" />
-              </Link>
-              {location === "home" && user ? (
-                <hr />
-              ) : (
-                <hr className="homeLinkHr" />
-              )}
-            </div>
+            <hr className="homeLinkHr" />
           ) : (
-            <div>
-              <Link
-                className="navLink"
-                to="/"
-                onClick={() => changeLocation(user, "home")}
-              >
-                <img src={CibusLogo} width="70" height="70" />
-              </Link>
-              <hr className="placeholderHr" />
-
-            </div>
+            <hr className="placeholderHr" />
           )}
         </li>
         <li>
