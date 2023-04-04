@@ -11,6 +11,7 @@ import { useOutletContext } from "react-router-dom";
 import DisplayTimes from "../../components/DisplayTimes/DisplayTimes";
 import "./DisplayMeal.css";
 import { URL_HOST } from "../../urlHost";
+import DuplicateMealButton from "../../components/DuplicateMealButton/DuplicateMealButton";
 
 const DisplayMeal = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
@@ -20,7 +21,7 @@ const DisplayMeal = () => {
   const [meal, setMeal] = useState();
 
   useEffect(() => {
-    const fetchMeals = async () => {
+    const fetchMeal = async () => {
       try {
         let response = await axios.get(
           `${URL_HOST}/api/meals/${mealId}/`,
@@ -36,7 +37,7 @@ const DisplayMeal = () => {
         console.log(error.message);
       }
     };
-    fetchMeals();
+    fetchMeal();
   }, []);
 
   return (
@@ -63,6 +64,7 @@ const DisplayMeal = () => {
         <a href={meal && meal.url}> Recipe Link <i className="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
       <div className="addButtonContainerMealView">
+        <DuplicateMealButton meal={meal && meal}/>
       {meal &&
       scheduledMeals &&
       scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (
