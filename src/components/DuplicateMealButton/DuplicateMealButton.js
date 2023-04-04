@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
@@ -11,8 +11,9 @@ const DuplicateMealButton = (meal) => {
   const navigate = useNavigate();
   const [ingredients, setIngredients] = useState();
 
-  console.log(meal.name);
+  console.log(ingredients);
   console.log(meal);
+
   const { mealId } = useParams();
 
   async function fetchIngredients() {
@@ -56,18 +57,21 @@ const DuplicateMealButton = (meal) => {
       );
       console.log(response.data);
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message);
     }
-}
-  
-async function postIngredient(duplicatedMealId, ingredient) {
+  }
+
+  async function postIngredient(ingredient, duplicatedMealId) {
     try {
       let response = await axios.post(
         `${URL_HOST}/api/ingredients/meal_id/${duplicatedMealId}/`,
-        { 
+        {
             name: ingredient.name,
             unit: 0,
-            quantity: ingredient.quantity},
+            quantity: ingredient.quantity,
+            meal_id: duplicatedMealId
+          }
+     ,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -80,20 +84,44 @@ async function postIngredient(duplicatedMealId, ingredient) {
     }
   }
 
-// async function duplciateMealAndIngredients(ingr){
-//     await duplicateMeal();
-//     for(ingredient in ingredients)
+  function duplicateIngredients(ingredients, duplicatedMealId) {
+    for (const ingredient of ingredients) {
+        console.log(ingredient)
+      postIngredient(ingredient, duplicatedMealId);
+    }
+  }
 
 
 
+  async function duplciateMealAndIngredients(ingredients) {
+    await duplicateMeal();
+  }
 
-// }
-
-
-// navigate(`/userMeal/${response.data.id}`);
-
-
-  return <button onClick={() => duplicateMeal()}>Duplicate Meal</button>;
+  
+  return <button onClick={() => duplicateIngredients(ingredients, 7)}>Duplicate Meal</button>;
 };
 
 export default DuplicateMealButton;
+
+//   function userAlert() {
+//     altAlert(
+//       '<p><span style="font-size: 12pt; color: red;">Please Visit <a title="Site Address" href="https://siteaddressgoeshere.com" target="_blank">Site Address</a> for more information</span></p>'
+//     );
+
+//     function altAlert(str) {
+//       if (typeof spModal != "undefined") {
+//         //for portal
+//         spModal.open({
+//           message: str,
+//           title: "Alert",
+//           buttons: [{ label: "OK", primary: true }],
+//         });
+//       } else {
+//         //for platform
+//         var gm = new GlideModal();
+//         gm.setTitle("Alert");
+//         gm.renderWithContent(str);
+//       }
+//     }
+//   }
+//   userAlert();
