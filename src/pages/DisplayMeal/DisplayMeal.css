@@ -86,9 +86,11 @@ p.mealNotesP {
   font-size: 1rem;
 }
 
-.addButtonContainerMealView {
+.addAndDuplciateButtonsContainer {
   width: 16%;
   margin-left: auto;
+  display: flex;
+  justify-content: center;
 }
 
 div.addButtonContainerMealView > button.noBorder {

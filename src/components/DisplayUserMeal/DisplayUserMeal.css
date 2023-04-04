@@ -10,15 +10,12 @@
     font-size: .9rem;
   }
   
-  .RecipeURLAndAddButtonContainer {
+  .RecipeURLContainer {
     width: 50%;
     margin-left: auto;
     text-align: left;
     padding-left: 1.6vw;
     padding-right: 2.5vw;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1vh;
 }
   div.RecipeURLAndAddButtonContainer > button.noBorder {
   transform: none;

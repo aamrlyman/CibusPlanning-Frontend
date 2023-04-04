@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import DisplayAllMealIngredients from "../../components/DisplayAllMealIngredients/DisplayAllMealIngredients";
 import "./DisplayUserMeal.css";
 import { URL_HOST } from "../../urlHost";
+import DuplicateMealButton from "../DuplicateMealButton/DuplicateMealButton";
 
 const DisplayUserMeal = ({
   setIsEdit,
@@ -26,14 +27,11 @@ const DisplayUserMeal = ({
 
   const deleteMeal = async () => {
     try {
-      let response = await axios.delete(
-        `${URL_HOST}/api/meals/${mealId}/`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      let response = await axios.delete(`${URL_HOST}/api/meals/${mealId}/`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       navigate("/userMealsList/");
       console.log(response);
     } catch (error) {
@@ -41,7 +39,7 @@ const DisplayUserMeal = ({
       alert("You can't delete a meal that is being used on a schedule");
     }
   };
-  function afterDelete(){
+  function afterDelete() {
     navigate("/userMealsList/");
   }
   return (
@@ -76,27 +74,39 @@ const DisplayUserMeal = ({
         </div>
       </div>
 
-      <div className="RecipeURLAndAddButtonContainer">
-        <a href={meal && meal.url}> Recipe Link</a>
-        {meal &&
-        scheduledMeals &&
-        scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (
-          <RemoveMealFromScheduleButton
-            meal={meal}
-            scheduledMeals={scheduledMeals}
-            getScheduledMeals={getScheduledMeals}
-            removeMealFromSchedule={removeMealFromSchedule}
-            scheduleId={scheduleId}
-          />
+      <div className="RecipeURLContainer">
+        {meal && meal.url != "" ? (
+          <a href={meal && meal.url}>
+            {" "}
+            Recipe Link{" "}
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
         ) : (
-          meal && (
-            <AddMealToScheduleButton
-              meal={meal}
-              scheduleId={scheduleId}
-              getScheduledMeals={getScheduledMeals}
-            />
-          )
+          ""
         )}
+
+        <div className="addAndDuplciateButtonsContainer">
+          <DuplicateMealButton meal={meal} />
+          {meal &&
+          scheduledMeals &&
+          scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (
+            <RemoveMealFromScheduleButton
+              meal={meal}
+              scheduledMeals={scheduledMeals}
+              getScheduledMeals={getScheduledMeals}
+              removeMealFromSchedule={removeMealFromSchedule}
+              scheduleId={scheduleId}
+            />
+          ) : (
+            meal && (
+              <AddMealToScheduleButton
+                meal={meal}
+                scheduleId={scheduleId}
+                getScheduledMeals={getScheduledMeals}
+              />
+            )
+          )}
+        </div>
       </div>
     </div>
   );

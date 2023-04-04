@@ -23,14 +23,11 @@ const DisplayMeal = () => {
   useEffect(() => {
     const fetchMeal = async () => {
       try {
-        let response = await axios.get(
-          `${URL_HOST}/api/meals/${mealId}/`,
-          {
-            headers: {
-              Authorization: "Bearer " + token,
-            },
-          }
-        );
+        let response = await axios.get(`${URL_HOST}/api/meals/${mealId}/`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
         setMeal(response.data);
         console.log(response.data);
       } catch (error) {
@@ -61,30 +58,38 @@ const DisplayMeal = () => {
         </div>
       </div>
       <div className="mealViewRecipeURL">
-        <a href={meal && meal.url}> Recipe Link <i className="fa-solid fa-arrow-up-right-from-square"></i></a>
+        {meal && meal.url != "" ? (
+          <a href={meal && meal.url}>
+            {" "}
+            Recipe Link{" "}
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        ) : (
+          ""
+        )}
       </div>
-      <div className="addButtonContainerMealView">
-        <DuplicateMealButton meal={meal && meal}/>
-      {meal &&
-      scheduledMeals &&
-      scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (
-        <RemoveMealFromScheduleButton
-          meal={meal}
-          scheduledMeals={scheduledMeals}
-          getScheduledMeals={getScheduledMeals}
-          removeMealFromSchedule={removeMealFromSchedule}
-          scheduleId={schedule.id}
-        />
-      ) : (
-        scheduledMeals && (
-          <AddMealToScheduleButton
-            scheduledMeals={scheduledMeals}
+      <div className="addAndDuplciateButtonsContainer">
+        <DuplicateMealButton meal={meal && meal} />
+        {meal &&
+        scheduledMeals &&
+        scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (
+          <RemoveMealFromScheduleButton
             meal={meal}
-            scheduleId={schedule.id}
+            scheduledMeals={scheduledMeals}
             getScheduledMeals={getScheduledMeals}
+            removeMealFromSchedule={removeMealFromSchedule}
+            scheduleId={schedule.id}
           />
-        )
-      )}
+        ) : (
+          scheduledMeals && (
+            <AddMealToScheduleButton
+              scheduledMeals={scheduledMeals}
+              meal={meal}
+              scheduleId={schedule.id}
+              getScheduledMeals={getScheduledMeals}
+            />
+          )
+        )}
       </div>
     </div>
   );
