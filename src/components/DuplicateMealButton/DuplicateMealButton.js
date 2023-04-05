@@ -93,9 +93,9 @@ const DuplicateMealButton = (meal) => {
   }
 
   return (
-    <div>
+    <div className="duplicateButtonContainer">
       {ingredients && (
-        <button className="noBorder" onClick={() => duplicateMealAndIngredientsAlertUser()}><i className="fa-solid fa-copy"></i></button>
+        <button className="noBorderLessPaddingBtn" onClick={() => duplicateMealAndIngredientsAlertUser()}><i className="fa-solid fa-copy"></i></button>
       )}
     </div>
   );

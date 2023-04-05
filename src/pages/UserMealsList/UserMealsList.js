@@ -42,7 +42,7 @@ const UserMealsList = () => {
             <tr>
               <th className="userMealsTh">Scheduled</th>
               <th className="userMealsTh">Meal</th>
-              <th className="userMealsTh">Recipe Url</th>
+              <th className="userMealsTh">Recipe <i className="fa-solid fa-link"></i></th>
               <th className="userMealsTh">Time</th>
               <th className="userMealsTh">
                 <Link className="tableAddMealLink" to="/createMeal">Add</Link>

@@ -86,7 +86,7 @@ p.mealNotesP {
   font-size: 1rem;
 }
 
-.addAndDuplciateButtonsContainer {
+.addButtonContainerMealView {
   width: 16%;
   margin-left: auto;
   display: flex;
@@ -95,5 +95,18 @@ p.mealNotesP {
 
 div.addButtonContainerMealView > button.noBorder {
   transform: none;
+  font-size: 1.4rem;
+}
+
+div.iconNameTimesContainer
+  > div.duplicateButtonContainer
+  > button.noBorderLessPaddingBtn {
+  margin-top: 2vh;
+}
+div.iconNameTimesContainer
+  > div.duplicateButtonContainer
+  > button.noBorderLessPaddingBtn
+  > i.fa-solid.fa-copy {
   font-size: 1.5rem;
+  padding: 1px;
 }

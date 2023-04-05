@@ -56,12 +56,13 @@ const DisplayUserMeal = ({
         </div>
         <div className="editDeleteButtonContainer">
           <button
-            className="noBorder"
+            className="noBorderLessPaddingBtn"
             type="button"
             onClick={() => setIsEdit(true)}
           >
             <i className="fa-solid fa-pencil"></i>
           </button>
+          <DuplicateMealButton meal={meal} />
           <DeleteUserMeal meal={meal} afterDelete={afterDelete} />
         </div>
       </div>
@@ -85,8 +86,7 @@ const DisplayUserMeal = ({
           ""
         )}
 
-        <div className="addAndDuplciateButtonsContainer">
-          <DuplicateMealButton meal={meal} />
+        <div className="addButtonContainerMealView">
           {meal &&
           scheduledMeals &&
           scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (

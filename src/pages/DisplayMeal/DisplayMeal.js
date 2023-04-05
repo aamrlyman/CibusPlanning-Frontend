@@ -49,6 +49,7 @@ const DisplayMeal = () => {
         <div className="displayTimeMealView">
           {meal ? <DisplayTimes meal={meal} /> : ""}
         </div>
+        <DuplicateMealButton meal={meal && meal} />
       </div>
       <div className="ingredientAndNotesContainer">
         <DisplayAllMealIngredients />
@@ -68,8 +69,7 @@ const DisplayMeal = () => {
           ""
         )}
       </div>
-      <div className="addAndDuplciateButtonsContainer">
-        <DuplicateMealButton meal={meal && meal} />
+      <div className="addButtonContainerMealView">
         {meal &&
         scheduledMeals &&
         scheduledMeals.some((sMeal) => sMeal.meal.id == meal.id) ? (

@@ -38,7 +38,7 @@ const DeleteUserMeal = ({ meal, afterDelete }) => {
 
   return (
     <div className="deleteButtonContainer">
-      <button className="noBorder" type="button" onClick={() => deleteMeal(afterDelete)}>
+      <button className="noBorderLessPaddingBtn" type="button" onClick={() => deleteMeal(afterDelete)}>
         <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>

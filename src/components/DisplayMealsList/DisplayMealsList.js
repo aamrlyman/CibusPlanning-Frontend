@@ -6,7 +6,7 @@ import DisplayTimes from "../DisplayTimes/DisplayTimes";
 import { Link } from "react-router-dom";
 import RemoveMealFromScheduleButton from "../RemoveMealFromScheduleButton/RemoveMealFromScheduleButton";
 
-const DisplayScheduledMeals = ({
+const DisplayMealsList = ({
   scheduleId,
   meal,
   getScheduledMeals,
@@ -52,4 +52,4 @@ const DisplayScheduledMeals = ({
     </tr>
   );
 };
-export default DisplayScheduledMeals;
+export default DisplayMealsList;

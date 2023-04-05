@@ -27,7 +27,7 @@ const DisplayUserMealList = ({
         <Link to={meal && `/userMeal/${meal.id}/`}> {meal.name}</Link>
       </td>
       <td className="userMealsTd">
-        <a href={meal.url}>Recipe Link </a>
+        <a href={meal.url}><i className="fa-solid fa-arrow-up-right-from-square"></i> </a>
       </td>
       <td className="times">
       {meal ? (

@@ -29,7 +29,7 @@ const MealSchedulePage = () => {
               <tr>
                 <th className="MealScheduleTableTh">Cooked</th>
                 <th className="MealScheduleTableTh">Meal</th>
-                <th className="MealScheduleTableTh">Recipes</th>
+                <th className="MealScheduleTableTh">Recipe <i className="fa-solid fa-link"></i></th>
                 <th className="timeHeader">Time</th>
                 {/* <th className="filler"></th> */}
               </tr>

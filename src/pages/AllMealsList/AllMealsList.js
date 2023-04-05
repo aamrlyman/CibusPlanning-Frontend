@@ -29,7 +29,7 @@ const AllMealsList = () => {
           <tr>
             <th className="allMealsTh">Scheduled</th>
             <th className="allMealsTh">Meal</th>
-            <th className="allMealsTh">Recipes</th>
+            <th className="allMealsTh">Recipe <i className="fa-solid fa-link"></i></th>
             <th className="allMealsTh">Time</th>
             <th className="allMealsTh">Add</th>
           </tr>
