@@ -40,7 +40,9 @@ button.noBorderTrashCan {
   flex-direction: row-reverse;
 }
 
-  
+a.noLink{
+font-size: 1.1rem
+} 
 
 .clearScheduleToolTip{
   /* display:inline-block;

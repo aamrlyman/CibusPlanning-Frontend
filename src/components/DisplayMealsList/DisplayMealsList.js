@@ -24,7 +24,13 @@ const DisplayMealsList = ({
         <Link to={meal && `/meal/${meal.id}/`}> {meal.name}</Link>
       </td>
       <td className="allMealsTd">
-        <a href={meal.url}><i className="fa-solid fa-arrow-up-right-from-square"></i> </a>
+      {meal.url? (
+          <a href={meal.url}>
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        ) : (
+          <a className="noLink">No Link Available</a>
+        )}
       </td>
       <td className="mealtimesTd">
         <DisplayTimes meal={meal} />

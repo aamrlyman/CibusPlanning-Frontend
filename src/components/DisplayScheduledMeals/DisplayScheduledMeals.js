@@ -57,7 +57,14 @@ const DisplayScheduledMeals = ({
         <Link to={meal && `/meal/${meal.meal.id}/`}>{meal.meal.name}</Link>
       </td>
       <td className="mealURLTd">
-        <a href={meal.meal.url}>{meal.meal.name} <i className="fa-solid fa-arrow-up-right-from-square"></i></a>
+        {meal.meal.url? (
+          <a href={meal.meal.url}>
+            {meal.meal.name}{" "}
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        ) : (
+          <a className="noLink">No Link Available</a>
+        )}
       </td>
       <td className="displaytimesTd">
         <div className="displayTimesContainer">
