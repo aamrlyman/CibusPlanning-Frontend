@@ -1,10 +1,15 @@
 .iconNameTimesEditContainer {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 1rem;
   align-items: flex-start;
 }
+
+.buttonsTimesContainer{
+  display: flex;
+}
+
 button.deleteIngredientButton {
   border: none;
   font-size: 0.9rem;
@@ -21,6 +26,7 @@ button.deleteIngredientButton {
 .editDeleteButtonContainer {
   display: flex;
   flex-direction: column;
+  margin-right: 1vw;
 }
 
 .noBorderLessPaddingBtn{
@@ -32,6 +38,7 @@ button.deleteIngredientButton {
 div.RecipeURLAndAddButtonContainer > button.noBorder {
   transform: none;
   font-size: 1.5rem;
+
 }
 div.editDeleteButtonContainer > div.deleteButtonContainer > button.noBorderLessPaddingBtn {
   font-size: 1rem;

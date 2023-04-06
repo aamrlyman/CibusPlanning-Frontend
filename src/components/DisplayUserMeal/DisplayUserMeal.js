@@ -51,19 +51,21 @@ const DisplayUserMeal = ({
         <div className="mealTitleContainer">
           <h1 className="mealTitle">{meal && meal.name}</h1>
         </div>
-        <div className="displayTimeMealView">
-          {meal ? <DisplayTimes meal={meal} /> : ""}
-        </div>
-        <div className="editDeleteButtonContainer">
-          <button
-            className="noBorderLessPaddingBtn"
-            type="button"
-            onClick={() => setIsEdit(true)}
-          >
-            <i className="fa-solid fa-pencil"></i>
-          </button>
-          <DuplicateMealButton meal={meal} />
-          <DeleteUserMeal meal={meal} afterDelete={afterDelete} />
+        <div className="buttonsTimesContainer">
+          <div className="displayTimeMealView">
+            {meal ? <DisplayTimes meal={meal} /> : ""}
+          </div>
+          <div className="editDeleteButtonContainer">
+            <button
+              className="noBorderLessPaddingBtn"
+              type="button"
+              onClick={() => setIsEdit(true)}
+            >
+              <i className="fa-solid fa-pencil"></i>
+            </button>
+            <DuplicateMealButton meal={meal} />
+            <DeleteUserMeal meal={meal} afterDelete={afterDelete} />
+          </div>
         </div>
       </div>
 

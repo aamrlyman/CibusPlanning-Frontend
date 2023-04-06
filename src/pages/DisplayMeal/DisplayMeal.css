@@ -15,7 +15,7 @@
 .iconNameTimesContainer {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 1rem;
   align-items: flex-start;
 }
@@ -37,7 +37,11 @@ h1.mealTitle {
 }
 
 .iconContainer {
-  margin-left: 0.5vw;
+  margin-left: 1vw;
+}
+
+.timesAndDuplicateContainer {
+  display: flex;
 }
 
 .displayTimeMealView {
@@ -52,6 +56,10 @@ h1.mealTitle {
 .ingredientAndNotesContainer {
   display: flex;
   margin: 3vh 3vw 0 3vw;
+}
+
+.duplicateButtonContainer {
+  margin-right: 1vw;
 }
 
 ul.allMealIngredients {
@@ -103,9 +111,8 @@ div.iconNameTimesContainer
   > button.noBorderLessPaddingBtn {
   margin-top: 2vh;
 }
-div.iconNameTimesContainer
-  > div.duplicateButtonContainer
-  > button.noBorderLessPaddingBtn
+
+  button.noBorderLessPaddingBtn
   > i.fa-solid.fa-copy {
   font-size: 1.5rem;
   padding: 1px;

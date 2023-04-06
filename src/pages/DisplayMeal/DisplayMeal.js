@@ -46,10 +46,12 @@ const DisplayMeal = () => {
         <div className="mealTitleContainer">
           <h1 className="mealTitle">{meal && meal.name}</h1>
         </div>
-        <div className="displayTimeMealView">
-          {meal ? <DisplayTimes meal={meal} /> : ""}
+        <div className="timesAndDuplicateContainer">
+          <div className="displayTimeMealView">
+            {meal ? <DisplayTimes meal={meal} /> : ""}
+          </div>
+          <DuplicateMealButton meal={meal && meal} />
         </div>
-        <DuplicateMealButton meal={meal && meal} />
       </div>
       <div className="ingredientAndNotesContainer">
         <DisplayAllMealIngredients />
