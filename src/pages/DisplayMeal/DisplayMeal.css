@@ -42,6 +42,7 @@ h1.mealTitle {
 
 .timesAndDuplicateContainer {
   display: flex;
+  margin-right: 1vw;
 }
 
 .displayTimeMealView {
@@ -56,10 +57,6 @@ h1.mealTitle {
 .ingredientAndNotesContainer {
   display: flex;
   margin: 3vh 3vw 0 3vw;
-}
-
-.duplicateButtonContainer {
-  margin-right: 1vw;
 }
 
 ul.allMealIngredients {
@@ -95,7 +92,7 @@ p.mealNotesP {
 }
 
 .addButtonContainerMealView {
-  width: 16%;
+  width: 9%;
   margin-left: auto;
   display: flex;
   justify-content: center;
@@ -106,14 +103,29 @@ div.addButtonContainerMealView > button.noBorder {
   font-size: 1.4rem;
 }
 
+div.RecipeURLContainer >
+div.addButtonContainerMealView  
+{
+  margin-right:-1.5vw;
+
+}
+
+
 div.iconNameTimesContainer
   > div.duplicateButtonContainer
   > button.noBorderLessPaddingBtn {
   margin-top: 2vh;
 }
+div.timesAndDuplicateContainer
+  > div.duplicateButtonContainer {
+    margin-top: 2vh;
+  }
 
-  button.noBorderLessPaddingBtn
+div.timesAndDuplicateContainer
+  > div.duplicateButtonContainer
+  > button.noBorderLessPaddingBtn
   > i.fa-solid.fa-copy {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   padding: 1px;
+
 }

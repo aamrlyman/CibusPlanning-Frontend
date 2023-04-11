@@ -26,7 +26,8 @@ button.deleteIngredientButton {
 .editDeleteButtonContainer {
   display: flex;
   flex-direction: column;
-  margin-right: 1vw;
+  margin-right: 1.25vw;
+  margin-left: .5vw;
 }
 
 .noBorderLessPaddingBtn{
