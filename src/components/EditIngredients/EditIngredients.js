@@ -35,7 +35,6 @@ const EditIngredients = ({
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
-      alert("For fraction quantities, put in 0 for quantity and use the free text unit box. Example: '1/2 cup'")
     }
   }
 

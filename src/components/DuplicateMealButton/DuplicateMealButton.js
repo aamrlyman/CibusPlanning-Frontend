@@ -31,15 +31,15 @@ const DuplicateMealButton = (meal) => {
   useEffect(() => {
     fetchIngredients();
   }, []);
-
+console.log(ingredients)
   async function postIngredient(ingredient, duplicatedMealId) {
     try {
       let response = await axios.post(
         `${URL_HOST}/api/ingredients/meal_id/${duplicatedMealId}/`,
         {
           name: ingredient.name,
-          unit: 0,
-          quantity: ingredient.quantity,
+          unit: ingredient.unit,
+          quantity: 0,
           meal_id: duplicatedMealId,
         },
         {
