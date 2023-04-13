@@ -10,7 +10,7 @@ const DeleteUserMeal = ({ meal, afterDelete }) => {
   //   const { mealId } = useParams();
   const navigate = useNavigate();
 
-  function confirmMessage() {
+  function confirmDeleteMessage() {
     let isDelete = window.confirm(
       `Are you sure you want to delete your ${meal.name} meal? This action cannot be undone.`
     );
@@ -35,7 +35,7 @@ const DeleteUserMeal = ({ meal, afterDelete }) => {
   }
 
   function alertUserDeleteMeal() {
-    if (confirmMessage()) {
+    if (confirmDeleteMessage()) {
       deleteMeal();
     }
   }
