@@ -62,7 +62,10 @@ const EditMeal = ({ setIsEdit, meal, fetchMeal }) => {
   function validatePrepCookTimeInput() {
     for (const key in formData) {
       if (!formData[key] || formData[key] < 0) {
-        formData[key] = 0;
+        if(key === "name" || key === "notes" || key === "url" ){formData[key] = ""}
+        else{
+          formData[key] = 0;
+        }
       }
     }
   }
