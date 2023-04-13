@@ -10,35 +10,43 @@ const DeleteUserMeal = ({ meal, afterDelete }) => {
   //   const { mealId } = useParams();
   const navigate = useNavigate();
 
-  const deleteMeal = async () => {
-    if (
-      !window.confirm(
-        "Are you sure you want to delete this meal? This action cannot be undone."
-      )
-    ) {
-      return null;
-    }
+  function confirmMessage() {
+    let isDelete = window.confirm(
+      `Are you sure you want to delete your ${meal.name} meal? This action cannot be undone.`
+    );
+      return isDelete
+  }
+
+  async function deleteMeal() {
     try {
-      let response = await axios.delete(
-        `${URL_HOST}/api/meals/${meal.id}/`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      let response = await axios.delete(`${URL_HOST}/api/meals/${meal.id}/`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       afterDelete();
       console.log(response);
     } catch (error) {
       console.log(error.message);
-      if (error.message === "Request failed with status code 409")
+      if (error.message === "Request failed with status code 409"){
         alert("You can't delete a meal that is being used on a schedule");
+      }
     }
-  };
+  }
+
+  function alertUserDeleteMeal() {
+    if (confirmMessage()) {
+      deleteMeal();
+    }
+  }
 
   return (
     <div className="deleteButtonContainer">
-      <button className="noBorderLessPaddingBtn" type="button" onClick={() => deleteMeal(afterDelete)}>
+      <button
+        className="noBorderLessPaddingBtn"
+        type="button"
+        onClick={() => alertUserDeleteMeal(afterDelete)}
+      >
         <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>

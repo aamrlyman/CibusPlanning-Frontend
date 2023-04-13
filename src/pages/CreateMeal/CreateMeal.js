@@ -24,7 +24,7 @@ const CreateMeal = () => {
   const [isURLAlertHidden, setIsURLAlertHidden] = useState(true);
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     initialValues,
-    createMeal
+    createMealValidateInput
   );
 
   const checkCharacterLengths = () => {
@@ -49,6 +49,14 @@ const CreateMeal = () => {
     checkCharacterLengths();
   }, [formData.url, formData.name, formData.notes]);
 
+  function validatePrepCookTimeInput() {
+    for (const key in formData) {
+      if (!formData[key] || formData[key] < 0) {
+        formData[key] = 0;
+      }
+    }
+  }
+
   async function createMeal() {
     try {
       let response = await axios.post(`${URL_HOST}/api/meals/user/`, formData, {
@@ -61,6 +69,11 @@ const CreateMeal = () => {
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  function createMealValidateInput() {
+    validatePrepCookTimeInput();
+    createMeal();
   }
 
   return (
@@ -94,22 +107,14 @@ const CreateMeal = () => {
             <input
               type="number"
               name="prep_time_hours"
-              value={
-                formData.prep_time_hours > 0
-                  ? formData.prep_time_hours
-                  : (formData.prep_time_hours = 0)
-              }
+              value={formData.prep_time_hours}
               onChange={handleInputChange}
             ></input>
             <label>h </label>
             <input
               type="number"
               name="prep_time_minutes"
-              value={
-                formData.prep_time_minutes > 0
-                  ? formData.prep_time_minutes
-                  : (formData.prep_time_minutes = 0)
-              }
+              value={formData.prep_time_minutes}
               onChange={handleInputChange}
             ></input>
             <label>m</label>
@@ -120,22 +125,14 @@ const CreateMeal = () => {
             <input
               type="number"
               name="cook_time_hours"
-              value={
-                formData.cook_time_hours > 0
-                  ? formData.cook_time_hours
-                  : (formData.cook_time_hours = 0)
-              }
+              value={formData.cook_time_hours}
               onChange={handleInputChange}
             ></input>
             <label>h </label>
             <input
               type="number"
               name="cook_time_minutes"
-              value={
-                formData.cook_time_minutes > 0
-                  ? formData.cook_time_minutes
-                  : (formData.cook_time_minutes = 0)
-              }
+              value={formData.cook_time_minutes}
               onChange={handleInputChange}
             ></input>
             <label>m</label>
