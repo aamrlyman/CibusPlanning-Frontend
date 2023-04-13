@@ -13,12 +13,31 @@ const EditIngredients = ({
 }) => {
   const [user, token] = useAuth();
   const { mealId } = useParams();
+  const [isNameAlertHidden, setIsNameAlertHidden] = useState(true);
+  const [isQuantityAlertHidden, setIsQuantityAlertHidden] = useState(true);
   const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
     ingredient,
     editIngredients
   );
 
+  const checkCharacterLengths = () => {
+    if (formData.name.length === 30) {
+      setIsNameAlertHidden(false);
+    } else {
+      setIsNameAlertHidden(true);
+    }
+    if (formData.unit.length === 30) {
+      setIsQuantityAlertHidden(false);
+    } else {
+      setIsQuantityAlertHidden(true);
+    }
+  };
+  useEffect(() => {
+    checkCharacterLengths();
+  }, [formData.unit, formData.name]);
+
   formData.meal_id = mealId;
+
   async function editIngredients() {
     try {
       let response = await axios.put(
@@ -62,21 +81,16 @@ const EditIngredients = ({
                     placeholder=" Ingredient Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                  ></input>
+                    maxLength="30"
+                    ></input>
+                    {isNameAlertHidden ? (
+                      ""
+                    ) : (
+                      <p className="AlertP" style={{ textAlign: "center" }}>
+                        Too many characters
+                      </p>
+                    )}
                 </td>
-                {/* <td>
-                  <input
-                    className="ingredientQuantityInput"
-                    type="number"
-                    name="quantity"
-                    value={
-                      formData.quantity > 0
-                        ? formData.quantity
-                        : (formData.quantity = 0)
-                    }
-                    onChange={handleInputChange}
-                  ></input>
-                </td> */}
                 <td className="unitTd">
                   <input
                     className="ingredientUnitInput"
@@ -85,7 +99,15 @@ const EditIngredients = ({
                     placeholder="Quantity"
                     value={formData.unit}
                     onChange={handleInputChange}
-                  ></input>
+                    maxLength="30"
+                    ></input>
+                    {isQuantityAlertHidden ? (
+                      ""
+                    ) : (
+                      <p className="AlertP" style={{ textAlign: "center" }}>
+                        Too many characters
+                      </p>
+                    )}
                 </td>
                 <td>
                   <button className="saveIngredientButton" type="submit">

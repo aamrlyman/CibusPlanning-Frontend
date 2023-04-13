@@ -70,7 +70,7 @@ input[type="number"] {
   width: 47.4%;
   text-align: left;
   margin-left: 1.5vw;
-  min-height: 34vh;
+  min-height: 36vh;
   margin-bottom: 1vh;
   border-right: solid 3px #7c262b;
 }
@@ -167,6 +167,13 @@ td.ingredientInputTd, td.unitTd {
 
 .cancleEditIngredientButton, .saveIngredientButton{
   border: none;
+}
+
+.AlertP{
+  font-size: .65rem;
+  color:#7c262b;
+  font-style: italic;
+  text-align: left;
 }
 
 /* .spacer {

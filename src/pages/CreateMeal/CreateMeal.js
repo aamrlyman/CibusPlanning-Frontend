@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useCustomForm from "../../hooks/useCustomForm";
@@ -19,22 +19,43 @@ let initialValues = {
 const CreateMeal = () => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
+  const [isNameAlertHidden, setIsNameAlertHidden] = useState(true);
+  const [isNotesAlertHidden, setIsNotesAlertHidden] = useState(true);
+  const [isURLAlertHidden, setIsURLAlertHidden] = useState(true);
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     initialValues,
     createMeal
   );
 
+  const checkCharacterLengths = () => {
+    if (formData.name.length === 60) {
+      setIsNameAlertHidden(false);
+    } else {
+      setIsNameAlertHidden(true);
+    }
+    if (formData.notes.length === 1000) {
+      setIsNotesAlertHidden(false);
+    } else {
+      setIsNotesAlertHidden(true);
+    }
+    if (formData.url.length === 150) {
+      setIsURLAlertHidden(false);
+    } else {
+      setIsURLAlertHidden(true);
+    }
+  };
+
+  useEffect(() => {
+    checkCharacterLengths();
+  }, [formData.url, formData.name, formData.notes]);
+
   async function createMeal() {
     try {
-      let response = await axios.post(
-        `${URL_HOST}/api/meals/user/`,
-        formData,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      let response = await axios.post(`${URL_HOST}/api/meals/user/`, formData, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       console.log(response.data);
       navigate(`/userMeal/${response.data.id}`);
     } catch (error) {
@@ -46,15 +67,24 @@ const CreateMeal = () => {
     <form onSubmit={handleSubmit} className="createMealForm">
       <div className="mealNameTimesButtonsContainer">
         <div className="editMealNameContainer">
-          <label></label>
-          <input
-            className="editMealInput"
-            placeholder="Meal Name"
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          ></input>
+          <label>
+            <input
+              className="editMealInput"
+              placeholder="Meal Name"
+              type="text"
+              name="name"
+              value={formData.name}
+              maxLength="60"
+              onChange={handleInputChange}
+            ></input>
+            {isNameAlertHidden ? (
+              ""
+            ) : (
+              <p className="AlertP" style={{ textAlign: "center" }}>
+                Meal Name has reached max character length (60).
+              </p>
+            )}
+          </label>
         </div>
         <div className="editTimesContainer">
           <label>
@@ -140,7 +170,13 @@ const CreateMeal = () => {
         </div>
         <div className="createNotes">
           <label>
-            <h3 className="createNotesLabel">Notes:</h3>
+            {isNotesAlertHidden ? (
+              <h3 className="createNotesLabel">Notes:</h3>
+            ) : (
+              <p className="AlertP">
+                Meal Notes has reached max character length (1000).
+              </p>
+            )}
           </label>
           <textarea
             style={{ width: "314px", height: "25vh" }}
@@ -148,6 +184,7 @@ const CreateMeal = () => {
             type="text"
             name="notes"
             value={formData.notes}
+            maxLength="1000"
             onChange={handleInputChange}
           ></textarea>
         </div>
@@ -160,8 +197,16 @@ const CreateMeal = () => {
             type="text"
             name="url"
             value={formData.url}
+            maxLength="150"
             onChange={handleInputChange}
           ></input>
+          {isURLAlertHidden ? (
+            ""
+          ) : (
+            <p className="AlertP" style={{ marginLeft: "1.8vw" }}>
+              Meal URL has reached max character length (150).
+            </p>
+          )}
         </label>
       </div>
     </form>
