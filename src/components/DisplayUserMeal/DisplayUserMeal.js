@@ -49,7 +49,11 @@ const DisplayUserMeal = ({
           <IsScheduledIcon scheduledMeals={scheduledMeals} meal={meal} />
         </div>
         <div className="mealTitleContainer">
-          <h1 className="mealTitle">{meal && meal.name}</h1>
+        {meal && meal.name.length > 15 ? (
+            <h1 className="longMealTitle">{meal && meal.name}</h1>
+          ) : (
+            <h1 className="mealTitle">{meal && meal.name}</h1>
+          )}
         </div>
         <div className="buttonsTimesContainer">
           <div className="displayTimeMealView">

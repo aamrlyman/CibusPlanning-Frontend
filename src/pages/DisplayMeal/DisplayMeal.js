@@ -12,6 +12,7 @@ import DisplayTimes from "../../components/DisplayTimes/DisplayTimes";
 import "./DisplayMeal.css";
 import { URL_HOST } from "../../urlHost";
 import DuplicateMealButton from "../../components/DuplicateMealButton/DuplicateMealButton";
+import styled, { css } from "styled-components";
 
 const DisplayMeal = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
@@ -19,6 +20,7 @@ const DisplayMeal = () => {
   const [user, token] = useAuth();
   const { mealId } = useParams();
   const [meal, setMeal] = useState();
+  const [mealTitleFontSize, setMealTitleFontSize] = useState("");
 
   useEffect(() => {
     const fetchMeal = async () => {
@@ -37,6 +39,10 @@ const DisplayMeal = () => {
     fetchMeal();
   }, []);
 
+  const h1 = styled.h1`
+    font-size: 2rem;
+  `;
+
   return (
     <div className="mealViewContainer">
       <div className="iconNameTimesContainer">
@@ -44,7 +50,11 @@ const DisplayMeal = () => {
           <IsScheduledIcon scheduledMeals={scheduledMeals} meal={meal} />
         </div>
         <div className="mealTitleContainer">
-          <h1 className="mealTitle">{meal && meal.name}</h1>
+          {meal && meal.name.length > 15 ? (
+            <h1 className="longMealTitle">{meal && meal.name}</h1>
+          ) : (
+            <h1 className="mealTitle">{meal && meal.name}</h1>
+          )}
         </div>
         <div className="timesAndDuplicateContainer">
           <div className="displayTimeMealView">

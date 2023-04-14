@@ -36,6 +36,15 @@ h1.mealTitle {
   letter-spacing: 3px;
 }
 
+h1.longMealTitle {
+  font-size: 2rem;
+  padding: 0.5vw 1vw 0.5vw 1vw;
+  font-style: italic;
+  font-family: apple-sd-gothic-light;
+  font-weight: 100;
+  letter-spacing: 3px;
+}
+
 .iconContainer {
   margin-left: 1vw;
 }
@@ -103,23 +112,18 @@ div.addButtonContainerMealView > button.noBorder {
   font-size: 1.4rem;
 }
 
-div.RecipeURLContainer >
-div.addButtonContainerMealView  
-{
-  margin-right:-1.5vw;
-
+div.RecipeURLContainer > div.addButtonContainerMealView {
+  margin-right: -1.5vw;
 }
-
 
 div.iconNameTimesContainer
   > div.duplicateButtonContainer
   > button.noBorderLessPaddingBtn {
   margin-top: 2vh;
 }
-div.timesAndDuplicateContainer
-  > div.duplicateButtonContainer {
-    margin-top: 2vh;
-  }
+div.timesAndDuplicateContainer > div.duplicateButtonContainer {
+  margin-top: 2vh;
+}
 
 div.timesAndDuplicateContainer
   > div.duplicateButtonContainer
@@ -127,5 +131,4 @@ div.timesAndDuplicateContainer
   > i.fa-solid.fa-copy {
   font-size: 1.8rem;
   padding: 1px;
-
 }
