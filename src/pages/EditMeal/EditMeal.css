@@ -24,16 +24,12 @@ button.editIngredientButton {
   display: flex;
   margin-top: 1rem;
   align-items: flex-start;
-  margin-left: -21px;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .editMealNameContainer {
-  margin-left: 1vw;
-  /* margin-right: 1vw; */
-  /* position: relative;
-  left: -22px; */
-  max-width: 63%;
-  /* width: fit-content; */
+  max-width: 56%;
 }
 
 .editMealInput {
@@ -44,21 +40,15 @@ button.editIngredientButton {
   font-family: apple-sd-gothic-light;
   font-weight: 100;
   letter-spacing: 3px;
-  min-width: 50%;
-  max-width: 90%;
+  width: 100%;
 }
 
 .editTimesContainer {
-  margin-right: 1vw;
-  /* width: fit-content; */
   border: dashed 3px #7c262b;
   border-radius: 6px;
   padding: 0.75rem;
   white-space: nowrap;
   text-align: left;
-  /* position: relative;
-    left: -39px;
-    top:3px; */
 }
 
 input[type="number"] {
@@ -145,7 +135,6 @@ input.editLinkInput {
   margin-top: 1vh;
 }
 
-
 input.ingredientNameInput,
 input.ingredientUnitInput {
   width: 100%;
@@ -161,17 +150,19 @@ td.ingredientInfoTd {
   width: 70.5%;
 }
 
-td.ingredientInputTd, td.unitTd {
+td.ingredientInputTd,
+td.unitTd {
   width: 27%;
 }
 
-.cancleEditIngredientButton, .saveIngredientButton{
+.cancleEditIngredientButton,
+.saveIngredientButton {
   border: none;
 }
 
-.AlertP{
-  font-size: .65rem;
-  color:#7c262b;
+.AlertP {
+  font-size: 0.65rem;
+  color: #7c262b;
   font-style: italic;
   text-align: left;
 }
