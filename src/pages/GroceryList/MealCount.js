@@ -2,7 +2,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import { Fragment } from "react";
 
 const MealCount = () => {
-  const [groceryList, sortType] = useOutletContext();
+  const [groceryList] = useOutletContext();
   let counter = 0;
   return (
     <div className="mealCountContainer">

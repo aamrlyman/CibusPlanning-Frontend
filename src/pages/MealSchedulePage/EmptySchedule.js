@@ -12,7 +12,7 @@ const EmptySchedule = () => {
             <i className="fa-solid fa-circle-plus"></i>
           </Link>
         </span>{" "}
-        to add pre-made meals to your meal plan, Or Click on the{" "}
+        to add some preset meals to your meal plan, Or Click on the{" "}
         <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
           +
         </Link>{" "}
@@ -25,7 +25,7 @@ const EmptySchedule = () => {
           type="text/html"
           width="640"
           height="360"
-          src={`https://www.youtube.com/embed/euS94UUWQcM?autoplay=1&origin=http://example.com`}
+          src={`https://www.youtube.com/embed/l72tS9B6L8I?autoplay=1&origin=http://example.com`}
           frameborder="0"
         ></iframe>
       </div>

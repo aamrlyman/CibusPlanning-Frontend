@@ -292,14 +292,14 @@ const GroceryList = () => {
             <span style={{ color: "#7c262b" }}>
             <Link to="/mealsList"><i className="fa-solid fa-circle-plus"></i></Link>
             </span>{" "}
-            to add pre-made meals to your meal plan, Or Click on the{" "}
+            to add preset added meals to your meal plan, Or Click on the{" "}
             <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
               +
             </Link>{" "}
             to create and add some of your own.
           </p>
         </div>):
-      <Outlet context={[groceryList, sortType]} /> }
+      <Outlet context={[groceryList, setGroceryList]} /> }
     </div>
   );
 };

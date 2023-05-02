@@ -1,7 +1,7 @@
 import { useOutletContext, Link } from "react-router-dom";
 
 const Everything = () => {
-  const [groceryList, sortType] = useOutletContext();
+  const [groceryList, setGroceryList] = useOutletContext();
   let counter = 1.111;
   let counter1 = 0;
   let counter2 = 0;

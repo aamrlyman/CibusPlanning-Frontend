@@ -1,7 +1,7 @@
 import { useOutletContext, Link } from "react-router-dom";
 
 const MealCount = () => {
-  const [groceryList, sortType] = useOutletContext();
+  const [groceryList] = useOutletContext();
   let counter = 1;
   let counter2 = 0;
   return (
