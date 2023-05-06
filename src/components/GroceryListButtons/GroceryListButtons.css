@@ -1,0 +1,66 @@
+.groceryListButtonsContainer {
+  display: flex;
+  align-items: center;
+}
+
+
+i.groceryCheckbox,
+i.groceryXI{
+    border:none;
+    padding: 1px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: #7c262b
+}
+
+/* .disabled{
+  pointer-events: none;
+}
+ */
+
+
+.checkboxContainer {
+    display: inline;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.15em solid #7c262b;
+  outline: none;
+  cursor: pointer;
+
+}
+
+input.checked {
+  background-color: #f0e1b2;
+  position: relative;
+}
+
+input.checked::before {
+  content: "✔";
+  font-size: .95rem;
+  color: #7c262b;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
+
+
+/* Evergreen: Hex #526861
+
+Burgundy: Hex #7c262b
+
+Pale Red: Hex #bb745c
+
+Soft Gold: Hex #e6c593
+
+Yellow Creme: Hex #f0e1b2
+
+Dark Charcoal: Hex #2c2219 */

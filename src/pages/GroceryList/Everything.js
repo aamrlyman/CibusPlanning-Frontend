@@ -1,4 +1,6 @@
 import { useOutletContext, Link } from "react-router-dom";
+import GroceryItemCheckBox from "../../components/GroceryListButtons/GroceryItemCheckbox";
+import RemoveItemButton from "../../components/GroceryListButtons/RemoveItemButton";
 
 const Everything = () => {
   const [groceryList, setGroceryList] = useOutletContext();
@@ -10,13 +12,6 @@ const Everything = () => {
       <table className="groceriesTable">
         <thead>
           <tr>
-            <td>
-              <span className="checkBoxCaveat">
-                *Checkboxes reset on refresh
-              </span>
-            </td>
-          </tr>
-          <tr>
             <th className="groceriesTh">Ingredients</th>
             <th className="groceriesTh">Meals</th>
             <th className="groceriesTh"># of Meals</th>
@@ -25,12 +20,20 @@ const Everything = () => {
         </thead>
         <tbody>
           {groceryList &&
-            groceryList.map((item) => (
+            groceryList.map((item, index) => (
               <tr key={`${item.id} + ${(counter += 1.321)}`}>
                 <td className="everythingTd">
-                  <label>
-                    <input type="checkbox" /> {item.name}
-                  </label>
+                  <div className="groceryListButtonsContainer">
+                    <RemoveItemButton
+                      groceryList={groceryList}
+                      index={index}
+                      setGroceryList={setGroceryList}
+                    />
+                    <label>
+                      <GroceryItemCheckBox />
+                      {item.name}
+                    </label>
+                  </div>
                 </td>
                 <td className="everythingTd">
                   {item &&
@@ -46,7 +49,7 @@ const Everything = () => {
                   {item &&
                     item.meals.map((meal) => (
                       <p className="quantitiesP" key={(counter1 += 1.123)}>
-                        {meal.quantity===0? "": meal.quantity} {meal.unit}
+                        {meal.quantity === 0 ? "" : meal.quantity} {meal.unit}
                       </p>
                     ))}
                   {/* </ol> */}

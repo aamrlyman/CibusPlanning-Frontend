@@ -1,20 +1,15 @@
 import { useOutletContext, Link } from "react-router-dom";
+import GroceryItemCheckBox from "../../components/GroceryListButtons/GroceryItemCheckbox";
+import RemoveItemButton from "../../components/GroceryListButtons/RemoveItemButton";
 
 const MealNames = () => {
-  const [groceryList] = useOutletContext();
+  const [groceryList, setGroceryList] = useOutletContext();
   let counter = 0;
   let counter2 = 0;
   return (
     <div className="mealNamesContainer">
       <table className="groceriesTable">
         <thead>
-          <tr>
-            <td>
-              <span className="checkBoxCaveat">
-                *Checkboxes reset on refresh
-              </span>
-            </td>
-          </tr>
           <tr>
             <th className="groceriesTh">Ingredients</th>
             <th className="groceriesTh">Meal Names</th>
@@ -25,12 +20,20 @@ const MealNames = () => {
         </thead>
         <tbody>
           {groceryList &&
-            groceryList.map((item) => (
+            groceryList.map((item, index) => (
               <tr key={`${item.id} + ${(counter += 1.98989)}`}>
                 <td className="ingredientMealNamesTd">
-                  <label>
-                    <input type="checkbox" /> {item.name}
-                  </label>
+                  <div className="groceryListButtonsContainer">
+                    <RemoveItemButton
+                      groceryList={groceryList}
+                      index={index}
+                      setGroceryList={setGroceryList}
+                    />
+                    <label>
+                      <GroceryItemCheckBox />
+                      {item.name}
+                    </label>
+                  </div>
                 </td>
                 <td className="mealNamesTd">
                   {item &&

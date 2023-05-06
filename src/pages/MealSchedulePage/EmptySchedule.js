@@ -25,7 +25,7 @@ const EmptySchedule = () => {
           type="text/html"
           width="640"
           height="360"
-          src={`https://www.youtube.com/embed/l72tS9B6L8I?autoplay=1&origin=http://example.com`}
+          src={`https://www.youtube.com/embed/l72tS9B6L8I`}
           frameborder="0"
         ></iframe>
       </div>

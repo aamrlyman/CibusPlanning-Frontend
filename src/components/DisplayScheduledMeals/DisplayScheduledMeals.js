@@ -37,7 +37,7 @@ const DisplayScheduledMeals = ({
       <td className="isCooked">
         {meal.is_Cooked ? (
           <button
-            className="noBorder"
+            className="isCookedCheckBoxButton"
             type="submit"
             onClick={() => isCookedToggle(meal.id)}
           >
@@ -45,7 +45,7 @@ const DisplayScheduledMeals = ({
           </button>
         ) : (
           <button
-            className="noBorder"
+            className="isCookedCheckBoxButton"
             type="submit"
             onClick={() => isCookedToggle(meal.id)}
           >

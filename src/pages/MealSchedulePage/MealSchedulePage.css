@@ -53,6 +53,11 @@ font-size: 1.1rem
   /* border: solid 2px #526861; */
   border-radius: 5px;
   padding: 9px;}
+
+  .isCookedCheckBoxButton{
+    border: none;
+    font-size: 2.5rem;
+  }
   /* width: 100px;
 https://www.w3schools.com/howto/howto_css_tooltip.asp
   

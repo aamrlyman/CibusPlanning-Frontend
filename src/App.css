@@ -164,19 +164,13 @@ textarea{
 .times,
 .addRemoveTd
 {
-  /* border-collapse: collapse; */
+
   border-bottom: dashed #526861;
   border-left: solid 5px #526861;
   font-size: 1em;
   padding: 0;
 }
 
-/* Icons for MealSchedule, AllMeals, and MyMeals */
-.fa-regular,
-.far {
-  font-weight: 400;
-  font-size: 2.5rem;
-}
 
 ul {
   list-style: none;
@@ -185,7 +179,11 @@ h3{
   margin-bottom: 3px;
 }
 
-/* https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
+div.icon {
+  font-size: 2.5rem;
+}
+
+
 
 /* Evergreen: Hex #526861
 

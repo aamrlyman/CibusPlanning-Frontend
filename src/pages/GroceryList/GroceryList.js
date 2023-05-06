@@ -284,13 +284,22 @@ const GroceryList = () => {
           )}
         </li>
       </ul>
+      <div className="caveatContainer">
+        {" "}
+        <p className="checkBoxCaveat">*Checkboxes reset on refresh</p>
+      </div>
       {!groceryList || groceryList.length < 1 ? (
         <div className="homePageFillerDiv">
-          <p className="firstLineP">You grocery list is empty <i className="fa-solid fa-cart-shopping"></i></p>
+          <p className="firstLineP">
+            You grocery list is empty{" "}
+            <i className="fa-solid fa-cart-shopping"></i>
+          </p>
           <p className="secondLineP">
             Go to <Link to="/mealsList">All Meals</Link> and click the{" "}
             <span style={{ color: "#7c262b" }}>
-            <Link to="/mealsList"><i className="fa-solid fa-circle-plus"></i></Link>
+              <Link to="/mealsList">
+                <i className="fa-solid fa-circle-plus"></i>
+              </Link>
             </span>{" "}
             to add preset added meals to your meal plan, Or Click on the{" "}
             <Link style={{ fontSize: "1.75rem" }} to="/createMeal">
@@ -298,8 +307,10 @@ const GroceryList = () => {
             </Link>{" "}
             to create and add some of your own.
           </p>
-        </div>):
-      <Outlet context={[groceryList, setGroceryList]} /> }
+        </div>
+      ) : (
+        <Outlet context={[groceryList, setGroceryList]} />
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import GroceryListButtons from "../../components/GroceryListButtons/GroceryListButtons";
+import RemoveItemButton from "../../components/GroceryListButtons/RemoveItemButton";
+import GroceryItemCheckBox from "../../components/GroceryListButtons/GroceryItemCheckbox";
 
 const IngredientsOnly = () => {
   const [groceryList, setGroceryList] = useOutletContext();
@@ -10,13 +11,6 @@ const IngredientsOnly = () => {
       <table className="groceriesTable">
         <thead>
           <tr>
-            <td>
-              <span className="checkBoxCaveat">
-                *Checkboxes reset on refresh
-              </span>
-            </td>
-          </tr>
-          <tr>
             <th className="groceriesTh">Ingredients</th>
           </tr>
         </thead>
@@ -25,14 +19,17 @@ const IngredientsOnly = () => {
             groceryList.map((item, index) => (
               <tr key={`${item.id} + ${(counter += 0.12312)} `}>
                 <td className="groceriesTd">
-                  <GroceryListButtons
+                  <div className="groceryListButtonsContainer">
+                  <RemoveItemButton
                     groceryList={groceryList}
                     index={index}
                     setGroceryList={setGroceryList}
                   />
                   <label>
+                    <GroceryItemCheckBox />
                     {item.name}
                   </label>
+                  </div>
                 </td>
               </tr>
             ))}

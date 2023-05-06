@@ -6,47 +6,55 @@ import axios from "axios";
 import "./DuplicateMealButton.css";
 import { URL_HOST } from "../../urlHost";
 
-const DuplicateMealButton = (meal) => {
+const DuplicateMealButton = ({meal}) => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
-  const [ingredients, setIngredients] = useState();
+  
+  //example from James for how I can set up api context that has headers and url so I don't have to repeat so much code
   const { mealId } = useParams();
+  const { apiClient } = //useContext();
+  {
+    apiClient: 
+    {
+      get: async function(apiRoute) {
+        return await axios.get(
+          `${URL_HOST}${apiRoute}`,
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+      },
+      post: async function(apiRoute, body) {
+        return await axios.post(
+          `${URL_HOST}${apiRoute}`,
+          body,
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+      }
+    }
+  };
 
   async function fetchIngredients() {
     try {
-      let response = await axios.get(
-        `${URL_HOST}/api/ingredients/meal_id/${mealId}/`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      setIngredients(response.data);
+      let response = await apiClient.get(`/api/ingredients/meal_id/${mealId}/`)
+       
       console.log(response.data);
+      return response.data;
     } catch (error) {
       console.log(error.message);
     }
   }
-  useEffect(() => {
-    fetchIngredients();
-  }, []);
-console.log(ingredients)
+
   async function postIngredient(ingredient, duplicatedMealId) {
     try {
-      let response = await axios.post(
-        `${URL_HOST}/api/ingredients/meal_id/${duplicatedMealId}/`,
-        {
-          name: ingredient.name,
-          unit: ingredient.unit,
-          quantity: 0,
-          meal_id: duplicatedMealId,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
+      let response = await apiClient.post(`/api/ingredients/meal_id/${duplicatedMealId}/`,
+        {...ingredient, meal_id:duplicatedMealId}
       );
       console.log(response.data);
     } catch (error) {
@@ -54,39 +62,19 @@ console.log(ingredients)
     }
   }
 
-  function duplicateIngredients(duplicatedMealId) {
-    for (const ingredient of ingredients) {
-      console.log(ingredient);
-      postIngredient(ingredient, duplicatedMealId);
-    }
-  }
-
-  function alertUser(duplicatedMealName) {
-    alert(`${duplicatedMealName} has been created`);
+  async function duplicateIngredients(duplicatedMealId) {
+    const ingredients = await fetchIngredients();
+    const postIngredientPromises = ingredients.map(ingredient => postIngredient(ingredient, duplicatedMealId));
+    await Promise.all(postIngredientPromises);
   }
 
   async function duplicateMealAndIngredientsAlertUser() {
     try {
-      let response = await axios.post(
-        `${URL_HOST}/api/meals/user/`,
-        {
-          name: "Copy of " + meal.meal.name,
-          notes: meal.meal.notes,
-          url: meal.meal.url,
-          prep_time_minutes: meal.meal.prep_time_minutes,
-          prep_time_hours: meal.meal.prep_time_hours,
-          cook_time_minutes: meal.meal.cook_time_minutes,
-          cook_time_hours: meal.meal.prep_time_hours,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const mealCopy = {...meal, name: "Copy of " + meal.name};
+      let response = await apiClient.post(`/api/meals/user/`,mealCopy);
       console.log(response.data);
-      duplicateIngredients(response.data.id);
-      alertUser(response.data.name);
+      await duplicateIngredients(response.data.id);
+      alert(`${response.data.name} has been created`);
     } catch (error) {
       console.log(error.message);
     }
@@ -94,9 +82,7 @@ console.log(ingredients)
 
   return (
     <div className="duplicateButtonContainer">
-      {ingredients && (
-        <button className="noBorderLessPaddingBtn" onClick={() => duplicateMealAndIngredientsAlertUser()}><i className="fa-solid fa-copy"></i></button>
-      )}
+      <button className="noBorderLessPaddingBtn" onClick={() => duplicateMealAndIngredientsAlertUser()}><i className="fa-solid fa-copy"></i></button>
     </div>
   );
 };

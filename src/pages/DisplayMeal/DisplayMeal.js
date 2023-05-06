@@ -39,9 +39,6 @@ const DisplayMeal = () => {
     fetchMeal();
   }, []);
 
-  const h1 = styled.h1`
-    font-size: 2rem;
-  `;
 
   return (
     <div className="mealViewContainer">
