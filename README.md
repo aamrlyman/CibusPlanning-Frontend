@@ -16,5 +16,7 @@ The styling and design were a product of many conversations between me and my wi
 I am using github workflows view AWS Amplify to automatically build and deploy the app whenever there is a change made to the `main` branch. 
 
 ## Project Status
-This project is feature complete and in current use by my wife and me. There are many things I hope to add as time goes on. 
-I am currently working on integrating chatGPT to take in user meal suggestions and output a recipe that the user can then save and edit for their own use.
+This project is feature complete and in current use by my wife and me. There are many things I hope to add as time goes on such as mobile friendly interface, chatGPT, "like" and search options for meals and more. 
+I am currently working on integrating chatGPT to take in user meal suggestions and output a recipe that the user can then save and edit for their own use. 
+
+Thanks taking the time to check out my project 😊.
