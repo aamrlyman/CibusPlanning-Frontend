@@ -13,7 +13,7 @@ The scaffolding was generated using React and is being hosted on AWS Amplify.
 The styling and design were a product of many conversations between me and my wife. 
 
 ## CI/CD
-I am using github workflows view AWS Amplify to automatically build and deploy the app whenever there is a change made to the `main` branch. 
+I am using github workflows via AWS Amplify to automatically build and deploy the app whenever there is a change made to the `main` branch. 
 
 ## Project Status
 This project is feature complete and in current use by my wife and me. There are many things I hope to add as time goes on such as mobile friendly interface, chatGPT, "like" and search options for meals and more. 
