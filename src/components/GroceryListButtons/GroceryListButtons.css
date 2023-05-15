@@ -44,10 +44,11 @@ input.checked {
 }
 
 input.checked::before {
-  content: "✔";
+  content: "\2713";
   font-size: .95rem;
   color: #7c262b;
   position: absolute;
+  font-weight: bold;
   right: 1px;
   top: -5px;
 }
