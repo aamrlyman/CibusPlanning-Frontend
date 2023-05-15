@@ -1,6 +1,6 @@
 ![cibuslogo2](https://user-images.githubusercontent.com/102815792/236648634-f8fb9305-59a7-4b3c-9741-23ce303bbcd5.png)
 
-## Meal Planning Grocery App FrontEnd
+## Meal Planning Grocery App Front End
 I graduated from devCodeCamp in March 2023. This is my capstone project--a meal planning and grocery list app. 
 
 Cibus means food in latin. See the live product: [Cibus Planning](https://main.d3l714edn7ya9t.amplifyapp.com/login) 
