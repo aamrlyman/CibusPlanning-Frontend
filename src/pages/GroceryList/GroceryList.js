@@ -286,7 +286,7 @@ const GroceryList = () => {
       </ul>
       <div className="caveatContainer">
         {" "}
-        <p className="checkBoxCaveat">*Checkboxes reset on refresh</p>
+        <p className="checkBoxCaveat">*List & checked boxes reset on refresh</p>
       </div>
       {!groceryList || groceryList.length < 1 ? (
         <div className="homePageFillerDiv">
