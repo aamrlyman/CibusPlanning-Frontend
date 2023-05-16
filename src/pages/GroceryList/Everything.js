@@ -22,7 +22,7 @@ const Everything = () => {
           {groceryList &&
             groceryList.map((item, index) => (
               <tr key={`${item.id} + ${(counter += 1.321)}`}>
-                <td className="everythingTd">
+                <td className="ingredientMealNamesTd">
                   <div className="groceryListButtonsContainer">
                     <RemoveItemButton
                       groceryList={groceryList}
@@ -44,7 +44,7 @@ const Everything = () => {
                     ))}
                 </td>
                 <td className="mealCountTd">{item.meals.length}</td>
-                <td className="everythingTd">
+                <td className="quantitiesTd">
                   {/* <ol> */}
                   {item &&
                     item.meals.map((meal) => (

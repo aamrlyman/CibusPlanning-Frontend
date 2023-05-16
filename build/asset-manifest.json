@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.554e59f5.css",
+    "main.js": "/static/js/main.9224b467.js",
+    "static/media/CibusLogo.png": "/static/media/CibusLogo.6380a82e5653a5699e5e.png",
+    "static/media/cibuslogo2.png": "/static/media/cibuslogo2.950108277daef8156c66.png",
+    "index.html": "/index.html",
+    "main.554e59f5.css.map": "/static/css/main.554e59f5.css.map",
+    "main.9224b467.js.map": "/static/js/main.9224b467.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.554e59f5.css",
+    "static/js/main.9224b467.js"
+  ]
+}

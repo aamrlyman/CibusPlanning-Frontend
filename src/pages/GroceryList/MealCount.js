@@ -20,7 +20,7 @@ const MealCount = () => {
           {groceryList &&
             groceryList.map((item, index) => (
               <tr key={`${item.id} + ${(counter += 1.98989)}`}>
-                <td className="mealNamesTd">
+                <td className="mealCountTd">
                   <div className="groceryListButtonsContainer">
                     <RemoveItemButton
                       groceryList={groceryList}
