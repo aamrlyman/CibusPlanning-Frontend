@@ -18,6 +18,13 @@ const LoginPage = () => {
     }
   }, [isServerError]);
 
+ function demoButtonClick(){
+  document.getElementById("username").value = "Visitor";
+  document.getElementById("password").value =  "Password!@#";
+  formData.username = "Visitor";
+  formData.password = "Password!@#";
+ }
+
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
@@ -28,6 +35,7 @@ const LoginPage = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
+            id="username" 
           />
         </label>
         <label>
@@ -37,15 +45,21 @@ const LoginPage = () => {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            id="password"
           />
         </label>
         {isServerError ? (
           <p className="error">Login failed, incorrect credentials!</p>
         ) : null}
         <Link to="/register">Click to register!</Link>
-        <button>Login</button>
+        <div className="loginButtonsContainer">
+        <button className="loginButton" type="submit">Login</button>
+        <button onClick={()=> demoButtonClick()}>Demo Login</button>
+        </div>
       </form>
+      
     </div>
+
   );
 };
 
