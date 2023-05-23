@@ -18,12 +18,12 @@ const LoginPage = () => {
     }
   }, [isServerError]);
 
- function demoButtonClick(){
-  document.getElementById("username").value = "Visitor";
-  document.getElementById("password").value =  "Password!@#";
-  formData.username = "Visitor";
-  formData.password = "Password!@#";
- }
+  function demoButtonClick() {
+    document.getElementById("username").value = "Visitor";
+    document.getElementById("password").value = "Password!@#";
+    formData.username = "Visitor";
+    formData.password = "Password!@#";
+  }
 
   return (
     <div className="container">
@@ -35,7 +35,7 @@ const LoginPage = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
-            id="username" 
+            id="username"
           />
         </label>
         <label>
@@ -53,13 +53,13 @@ const LoginPage = () => {
         ) : null}
         <Link to="/register">Click to register!</Link>
         <div className="loginButtonsContainer">
-        <button className="loginButton" type="submit">Login</button>
-        <button onClick={()=> demoButtonClick()}>Demo Login</button>
+          <button className="loginButton" type="submit">
+            Login
+          </button>
+          <button onClick={() => demoButtonClick()}>Demo Login</button>
         </div>
       </form>
-      
     </div>
-
   );
 };
 
