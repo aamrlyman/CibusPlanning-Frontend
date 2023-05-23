@@ -53,10 +53,10 @@ const LoginPage = () => {
         ) : null}
         <Link to="/register">Click to register!</Link>
         <div className="loginButtonsContainer">
-          <button className="loginButton" type="submit">
+          <button className="loginButtons loginButton" type="submit">
             Login
           </button>
-          <button onClick={() => demoButtonClick()}>Demo Login</button>
+          <button className= "loginButtons" onClick={() => demoButtonClick()}>Try Demo!</button>
         </div>
       </form>
     </div>
