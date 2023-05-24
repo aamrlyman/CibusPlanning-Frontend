@@ -1,0 +1,9 @@
+.demoBanner {
+    background-color: #bb745c;
+    color: #f0e1b2;
+    width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    /* margin-bottom: 2vh; */
+}

@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import DisplayScheduledMeals from "../../components/DisplayScheduledMeals/DisplayScheduledMeals";
 import { useOutletContext, Link } from "react-router-dom";
 import "./MealSchedulePage.css";
-import EmptySchedule from "./EmptySchedule"
+import EmptySchedule from "./EmptySchedule";
 // import ScheduleIdContext from "../../context/scheduleIdContext";
 
 const MealSchedulePage = () => {
@@ -17,11 +17,21 @@ const MealSchedulePage = () => {
     clearSchedule,
   ] = useOutletContext();
 
+  const clearScheduleAlertUser = (schedule) => {
+    if (
+      !window.confirm(
+        "Are you sure you want to clear this schedule? This action cannot be undone."
+      )
+    )
+      return null;
+    clearSchedule(schedule);
+  };
+
   return (
     <div>
       <h1 className="Welcome">Welcome {user.username}!</h1>
       {!scheduledMeals || scheduledMeals.length < 1 ? (
-        <EmptySchedule/>
+        <EmptySchedule />
       ) : (
         <div className="tableContainter">
           <table className="scheduleTable">
@@ -29,7 +39,9 @@ const MealSchedulePage = () => {
               <tr>
                 <th className="MealScheduleTableTh">Cooked</th>
                 <th className="MealScheduleTableTh">Meal</th>
-                <th className="MealScheduleTableTh">Recipe <i className="fa-solid fa-link"></i></th>
+                <th className="MealScheduleTableTh">
+                  Recipe <i className="fa-solid fa-link"></i>
+                </th>
                 <th className="timeHeader">Time</th>
                 {/* <th className="filler"></th> */}
               </tr>
@@ -55,7 +67,7 @@ const MealSchedulePage = () => {
               onMouseLeave={() => setIsHovered(false)}
               className="noBorderTrashCan"
               type="submit"
-              onClick={() => clearSchedule(schedule)}
+              onClick={() => clearScheduleAlertUser(schedule)}
             >
               <i className="fa-regular fa-trash-can"></i>
             </button>

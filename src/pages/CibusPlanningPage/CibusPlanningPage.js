@@ -4,11 +4,15 @@ import useAuth from "../../hooks/useAuth";
 import { Outlet } from "react-router-dom";
 import { URL_HOST } from "../../urlHost";
 import axios from "axios";
+import DemoBanner from "../../components/DemoBanner/DemoBanner";
+import "../../components/DemoBanner/DemoBanner.css"
+import "../../components/DemoBanner/DemoBanner";
 
 const CibusPlanning = (props) => {
   const [schedule, setSchedule] = useState();
   const [scheduledMeals, setScheduledMeals] = useState();
   const [user, token] = useAuth();
+
   const getUserSchedule = async () => {
     try {
       let response = await axios.get(`${URL_HOST}/api/schedules/`, {
@@ -29,7 +33,34 @@ const CibusPlanning = (props) => {
   useEffect(() => {
     getUserSchedule();
   }, [token]);
-  
+
+  const clearSchedule = async (schedule) => {
+    try {
+      let response = await axios.delete(
+        `${URL_HOST}/api/schedules/${schedule.id}/`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      setScheduledMeals(null);
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (schedule) {
+      const interval = setInterval(() => {
+        if (user.username === "Visitor") {
+          clearSchedule(schedule);
+        }
+      }, 60000);
+      return () => clearInterval(interval);
+    }
+  }, [schedule]);
 
   const createUserSchedule = async () => {
     try {
@@ -78,7 +109,9 @@ const CibusPlanning = (props) => {
           },
         }
       );
-      setScheduledMeals(scheduledMeals.filter((sMeal)=> sMeal.id !== scheduledMealId));
+      setScheduledMeals(
+        scheduledMeals.filter((sMeal) => sMeal.id !== scheduledMealId)
+      );
       afterDelete(scheduleId);
       // getScheduledMeals(scheduleId);
       console.log(response);
@@ -87,48 +120,24 @@ const CibusPlanning = (props) => {
     }
   };
 
-  const clearSchedule = async (schedule) => {
-    if (
-      !window.confirm(
-        "Are you sure you want to clear this schedule? This action cannot be undone."
-      )
-    ) {
-      return null;
-    }
-    try {
-        let response = await axios.delete(
-          `${URL_HOST}/api/schedules/${schedule.id}/`,
-          {
-            headers: {
-              Authorization: "Bearer " + token,
-            },
-          }
-        );
-        // getScheduledMeals(schedule);
-        setScheduledMeals(null)
-        console.log(response);
-      } catch (error) {
-        console.log(error.message);
-      }
-  };
-
   return (
-    <div className="container">
-      <Outlet
-        context={[
-          schedule,
-          scheduledMeals,
-          getScheduledMeals,
-          removeMealFromSchedule,
-          clearSchedule,
-          getUserSchedule
-        ]}
-      />
+    <div>
+      {user.username === "Visitor" ? <DemoBanner /> : ""}
+      <div className="container">
+        <Outlet
+          context={[
+            schedule,
+            scheduledMeals,
+            getScheduledMeals,
+            removeMealFromSchedule,
+            clearSchedule,
+            getUserSchedule,
+          ]}
+        />
+      </div>
     </div>
   );
 };
-
-
 
 export default CibusPlanning;
 
