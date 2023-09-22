@@ -91,32 +91,12 @@ const AddIngredient = ({
                   <i className="fa-solid fa-xmark"></i>
                 </button>
               </td>
-              <td className="ingredientNameTd">
-                <label>
-                  <input
-                    ref={inputRef}
-                    className="ingredientNameInput"
-                    type="text"
-                    placeholder=" Ingredient Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    autoFocus
-                    maxLength="30"
-                  ></input>
-                  {isNameAlertHidden ? (
-                    ""
-                  ) : (
-                    <p className="AlertP" style={{ textAlign: "center" }}>
-                      Too many characters
-                    </p>
-                  )}
-                </label>
-              </td>
               <td className="ingredientInputTd">
                 <label>
                   <input
                     className="ingredientUnitInput"
+                    ref={inputRef}
+                    autoFocus
                     placeholder="Quantity"
                     type="text"
                     name="unit"
@@ -125,6 +105,26 @@ const AddIngredient = ({
                     maxLength="30"
                   ></input>
                   {isQuantityAlertHidden ? (
+                    ""
+                  ) : (
+                    <p className="AlertP" style={{ textAlign: "center" }}>
+                      Too many characters
+                    </p>
+                  )}
+                </label>
+              </td>
+              <td className="ingredientNameTd">
+                <label>
+                  <input
+                    className="ingredientNameInput"
+                    type="text"
+                    placeholder=" Ingredient Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    maxLength="30"
+                  ></input>
+                  {isNameAlertHidden ? (
                     ""
                   ) : (
                     <p className="AlertP" style={{ textAlign: "center" }}>

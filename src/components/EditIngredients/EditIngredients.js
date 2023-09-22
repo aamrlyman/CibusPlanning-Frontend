@@ -73,6 +73,25 @@ const EditIngredients = ({
                     <i className="fa-solid fa-xmark"></i>
                   </button>
                 </td>
+                <td className="unitTd">
+                  <input
+                    className="ingredientUnitInput"
+                    autoFocus
+                    type="text"
+                    name="unit"
+                    placeholder="Quantity"
+                    value={formData.unit}
+                    onChange={handleInputChange}
+                    maxLength="30"
+                    ></input>
+                    {isQuantityAlertHidden ? (
+                      ""
+                    ) : (
+                      <p className="AlertP" style={{ textAlign: "center" }}>
+                        Too many characters
+                      </p>
+                    )}
+                </td>
                 <td>
                   <input
                     className="ingredientNameInput"
@@ -84,24 +103,6 @@ const EditIngredients = ({
                     maxLength="30"
                     ></input>
                     {isNameAlertHidden ? (
-                      ""
-                    ) : (
-                      <p className="AlertP" style={{ textAlign: "center" }}>
-                        Too many characters
-                      </p>
-                    )}
-                </td>
-                <td className="unitTd">
-                  <input
-                    className="ingredientUnitInput"
-                    type="text"
-                    name="unit"
-                    placeholder="Quantity"
-                    value={formData.unit}
-                    onChange={handleInputChange}
-                    maxLength="30"
-                    ></input>
-                    {isQuantityAlertHidden ? (
                       ""
                     ) : (
                       <p className="AlertP" style={{ textAlign: "center" }}>
