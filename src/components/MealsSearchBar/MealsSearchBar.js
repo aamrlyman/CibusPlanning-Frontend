@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./MealsSearchBar.css";
 
 const MealsSearchBar = ({ meals, setMeals, fetchMeals }) => {
   const [searchString, setSearchString] = useState("");
@@ -15,15 +16,20 @@ const MealsSearchBar = ({ meals, setMeals, fetchMeals }) => {
   };
 
   return (
-    <div>
+    <div className="searchBarContainer">
       <input
         type="text"
         value={searchString}
         onChange={handleInputChange}
         placeholder="Search for meals..."
+        className="searchBarInput"
       />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={() => fetchMeals()}>reset search</button>
+      <button onClick={handleSearch}>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button onClick={() => fetchMeals()}>
+        <i class="fa-solid fa-rotate"></i>
+      </button>
     </div>
   );
 };

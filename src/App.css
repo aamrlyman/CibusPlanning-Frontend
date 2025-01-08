@@ -51,7 +51,7 @@ button:active {
 
 .noBorder {
   border: none;
-  margin-bottom: .5vh;
+  margin-bottom: 0.5vh;
 }
 .container {
   max-width: 100%;
@@ -84,7 +84,6 @@ a {
   text-decoration: none;
 }
 
-
 a:hover {
   color: #7c262b;
   text-decoration: underline;
@@ -96,24 +95,25 @@ a:hover {
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 } */
 
-input, textarea {
+input,
+textarea {
   border-radius: 5px;
   background-color: #f0e1b2;
   border: solid 2px #7c262b;
 }
 
-input:focus{
-  border: solid 2.5px #526861 ;
+input:focus {
+  border: solid 2.5px #526861;
 }
-textarea:focus{
-  border: solid 3px #526861 ;
+textarea:focus {
+  border: solid 3px #526861;
   padding: 2px;
 }
-textarea{
+textarea {
   padding: 3px;
 }
 
-.tableContainter{
+.tableContainter {
   margin: auto;
   width: 90%;
   margin-bottom: 14vh;
@@ -123,8 +123,7 @@ textarea{
 /* table Classes */
 .scheduleTable,
 .allMealsTable,
-.useMealsTable
-{
+.useMealsTable {
   border: 5px solid #526861;
   padding: 0.25em;
   margin: auto;
@@ -136,16 +135,14 @@ textarea{
 
 .allMealsTable,
 .useMealsTable {
-  margin-top: 2rem;
+  margin-top: 1.2rem;
 }
-
 
 /* th classes */
 .MealScheduleTableTh,
 .timeHeader,
-.allMealsTh, 
-.userMealsTh
- {
+.allMealsTh,
+.userMealsTh {
   font-size: 2rem;
   padding: 0.25em;
   font-weight: lighter;
@@ -162,28 +159,23 @@ textarea{
 .mealTimesTd,
 .userMealsTd,
 .times,
-.addRemoveTd
-{
-
+.addRemoveTd {
   border-bottom: dashed #526861;
   border-left: solid 5px #526861;
   font-size: 1em;
   padding: 0;
 }
 
-
 ul {
   list-style: none;
 }
-h3{
+h3 {
   margin-bottom: 3px;
 }
 
 div.icon {
   font-size: 2.5rem;
 }
-
-
 
 /* Evergreen: Hex #526861
 
