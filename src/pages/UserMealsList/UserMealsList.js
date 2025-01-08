@@ -6,6 +6,8 @@ import { useOutletContext, Link } from "react-router-dom";
 import "./UserMealsList.css";
 import { URL_HOST } from "../../urlHost";
 import EmptyUserMealList from "./EmptyUserMealList";
+import { sortMealsAlphabetically } from "../../utils/customfunctions";
+import MealsSearchBar from "../../components/MealsSearchBar/MealsSearchBar";
 
 const UserMealsList = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
@@ -25,7 +27,8 @@ const UserMealsList = () => {
           Authorization: "Bearer " + token,
         },
       });
-      setMeals(response.data);
+      const sortedMeals = response.data.sort(sortMealsAlphabetically);
+      setMeals(sortedMeals);
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -34,6 +37,11 @@ const UserMealsList = () => {
 
   return (
     <div className="tableContainter">
+      <MealsSearchBar
+        meals={meals}
+        setMeals={setMeals}
+        fetchMeals={fetchMeals}
+      ></MealsSearchBar>
       {!meals || meals.length < 1 ? (
         <EmptyUserMealList />
       ) : (
@@ -42,10 +50,14 @@ const UserMealsList = () => {
             <tr>
               <th className="userMealsTh">Scheduled</th>
               <th className="userMealsTh">Meal</th>
-              <th className="userMealsTh">Recipe <i className="fa-solid fa-link"></i></th>
+              <th className="userMealsTh">
+                Recipe <i className="fa-solid fa-link"></i>
+              </th>
               <th className="userMealsTh">Time</th>
               <th className="userMealsTh">
-                <Link className="tableAddMealLink" to="/createMeal">Add</Link>
+                <Link className="tableAddMealLink" to="/createMeal">
+                  Add
+                </Link>
                 <span className="editMeals">
                   <button
                     className="noBorder"
