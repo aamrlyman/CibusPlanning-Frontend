@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
 import IsScheduledIcon from "../IsScheduledIcon/IsScheduledIcon";
 import AddMealToScheduleButton from "../AddMealToScheduleButton/AddMealToScheduleButton";
 import { Link } from "react-router-dom";
@@ -7,24 +5,29 @@ import DeleteUserMeal from "../DeleteMeal/DeleteMeal";
 import DisplayTimes from "../DisplayTimes/DisplayTimes";
 import RemoveMealFromScheduleButton from "../RemoveMealFromScheduleButton/RemoveMealFromScheduleButton";
 
-const DisplayUserMealList = ({
+const MealRow = ({
   scheduleId,
   meal,
   getScheduledMeals,
   scheduledMeals,
-  isDelete,
   fetchMeals,
   removeMealFromSchedule,
+  isDelete,
+  index,
 }) => {
-  const [user, token] = useAuth();
-
   return (
-    <tr>
+    <tr key={index}>
       <td className="userMealsTd">
         <IsScheduledIcon scheduledMeals={scheduledMeals} meal={meal} />
       </td>
       <td className="userMealsTd">
-        <Link to={meal && `/userMeal/${meal.id}/`}> {meal.name}</Link>
+        <Link
+          href={meal && `/userMeal/${meal.id}/`}
+          to={meal && `/userMeal/${meal.id}/`}
+        >
+          {" "}
+          {meal.name}
+        </Link>
       </td>
       <td className="userMealsTd">
         {meal.url ? (
@@ -65,12 +68,7 @@ const DisplayUserMealList = ({
           </span>
         </div>
       </td>
-      {/* {isDelete && meal && (
-        <td>
-          <DeleteUserMeal meal={meal} fetchMeals={fetchMeals} />
-        </td>
-      )} */}
     </tr>
   );
 };
-export default DisplayUserMealList;
+export default MealRow;

@@ -113,7 +113,7 @@ textarea {
   padding: 3px;
 }
 
-.tableContainter {
+.tableContainer {
   margin: auto;
   width: 90%;
   margin-bottom: 14vh;
@@ -123,7 +123,7 @@ textarea {
 /* table Classes */
 .scheduleTable,
 .allMealsTable,
-.useMealsTable {
+.userMealsTable {
   border: 5px solid #526861;
   padding: 0.25em;
   margin: auto;
@@ -134,7 +134,7 @@ textarea {
 }
 
 .allMealsTable,
-.useMealsTable {
+.userMealsTable {
   margin-top: 1.2rem;
 }
 

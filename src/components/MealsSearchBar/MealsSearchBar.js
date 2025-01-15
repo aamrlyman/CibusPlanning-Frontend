@@ -3,7 +3,6 @@ import "./MealsSearchBar.css";
 
 const MealsSearchBar = ({ meals, setMeals, fetchMeals }) => {
   const [searchString, setSearchString] = useState("");
-
   const handleInputChange = (e) => {
     setSearchString(e.target.value);
   };
@@ -25,10 +24,10 @@ const MealsSearchBar = ({ meals, setMeals, fetchMeals }) => {
         className="searchBarInput"
       />
       <button onClick={handleSearch}>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
       </button>
       <button onClick={() => fetchMeals()}>
-        <i class="fa-solid fa-rotate"></i>
+        <i className="fa-solid fa-rotate"></i>
       </button>
     </div>
   );

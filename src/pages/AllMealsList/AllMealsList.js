@@ -1,16 +1,18 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import DisplayMealsList from "../../components/DisplayMealsList/DisplayMealsList";
+import DisplayMealsList from "../../components/MealRow/DisplayMealsList";
 import { useOutletContext } from "react-router-dom";
 import "./AllMealsList.css";
 import { URL_HOST } from "../../urlHost";
 import MealsSearchBar from "../../components/MealsSearchBar/MealsSearchBar";
 import { sortMealsAlphabetically } from "../../utils/customfunctions";
+import GenericTable from "../../components/GenericTable/GenericTable";
+import MealRow from "../../components/MealRow/MealRow";
 
 const AllMealsList = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
     useOutletContext();
-  const [meals, setMeals] = useState();
+  const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     fetchMeals();
@@ -26,40 +28,27 @@ const AllMealsList = () => {
     }
   };
 
+  const headers = ["Scheduled", "Meal", "Recipe", "Time", "Add"];
   return (
-    <div className="tableContainter">
+    <div className="tableContainer">
       <MealsSearchBar
         meals={meals}
         fetchMeals={fetchMeals}
         setMeals={setMeals}
       ></MealsSearchBar>
-      <table className="allMealsTable">
-        <thead>
-          <tr>
-            <th className="allMealsTh">Scheduled</th>
-            <th className="allMealsTh">Meal</th>
-            <th className="allMealsTh">
-              Recipe <i className="fa-solid fa-link"></i>
-            </th>
-            <th className="allMealsTh">Time</th>
-            <th className="allMealsTh">Add</th>
-          </tr>
-        </thead>
-        <tbody>
-          {meals &&
-            meals.map((meal) => (
-              <Fragment key={meal.id}>
-                <DisplayMealsList
-                  meal={meal}
-                  scheduleId={schedule && schedule.id}
-                  scheduledMeals={scheduledMeals}
-                  getScheduledMeals={getScheduledMeals}
-                  removeMealFromSchedule={removeMealFromSchedule}
-                />
-              </Fragment>
-            ))}
-        </tbody>
-      </table>
+      <GenericTable
+        headers={headers}
+        data={meals}
+        renderRow={(meal, index) => (
+          <DisplayMealsList
+            scheduleId={schedule}
+            meal={meal}
+            getScheduledMeals={getScheduledMeals}
+            scheduledMeals={scheduledMeals}
+            removeMealFromSchedule={removeMealFromSchedule}
+          />
+        )}
+      />
     </div>
   );
 };

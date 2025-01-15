@@ -4,6 +4,7 @@ import DisplayScheduledMeals from "../../components/DisplayScheduledMeals/Displa
 import { useOutletContext, Link } from "react-router-dom";
 import "./MealSchedulePage.css";
 import EmptySchedule from "./EmptySchedule";
+import GenericTable from "../../components/GenericTable/GenericTable";
 // import ScheduleIdContext from "../../context/scheduleIdContext";
 
 const MealSchedulePage = () => {
@@ -27,6 +28,14 @@ const MealSchedulePage = () => {
     clearSchedule(schedule);
   };
 
+  const headers = [
+    "Cooked",
+    "Meal",
+    <span>
+      Recipe <i className="fa-solid fa-link"></i>
+    </span>,
+    "Time",
+  ];
   return (
     <div>
       <h1 className="Welcome">Welcome {user.username}!</h1>
@@ -34,33 +43,19 @@ const MealSchedulePage = () => {
         <EmptySchedule />
       ) : (
         <div className="tableContainter">
-          <table className="scheduleTable">
-            <thead>
-              <tr>
-                <th className="MealScheduleTableTh">Cooked</th>
-                <th className="MealScheduleTableTh">Meal</th>
-                <th className="MealScheduleTableTh">
-                  Recipe <i className="fa-solid fa-link"></i>
-                </th>
-                <th className="timeHeader">Time</th>
-                {/* <th className="filler"></th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {scheduledMeals &&
-                scheduledMeals.map((meal) => (
-                  <Fragment key={meal.id}>
-                    <DisplayScheduledMeals
-                      meal={meal}
-                      getScheduledMeals={getScheduledMeals}
-                      scheduleId={schedule.id}
-                      scheduledMeals={scheduledMeals}
-                      removeMealFromSchedule={removeMealFromSchedule}
-                    />
-                  </Fragment>
-                ))}
-            </tbody>
-          </table>
+          <GenericTable
+            headers={headers}
+            data={scheduledMeals}
+            renderRow={(meal, index) => (
+              <DisplayScheduledMeals
+                meal={meal}
+                getScheduledMeals={getScheduledMeals}
+                scheduleId={schedule.id}
+                scheduledMeals={scheduledMeals}
+                removeMealFromSchedule={removeMealFromSchedule}
+              />
+            )}
+          />
           <div className="trashCanContainer">
             <button
               onMouseEnter={() => setIsHovered(true)}
