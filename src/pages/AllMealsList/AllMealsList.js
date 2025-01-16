@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import DisplayMealsList from "../../components/MealRow/DisplayMealsList";
 import { useOutletContext } from "react-router-dom";
@@ -41,7 +41,7 @@ const AllMealsList = () => {
         data={meals}
         renderRow={(meal, index) => (
           <DisplayMealsList
-            scheduleId={schedule}
+            scheduleId={schedule?.id}
             meal={meal}
             getScheduledMeals={getScheduledMeals}
             scheduledMeals={scheduledMeals}
