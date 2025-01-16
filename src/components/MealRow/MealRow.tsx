@@ -5,8 +5,21 @@ import DeleteUserMeal from "../DeleteMeal/DeleteMeal";
 import DisplayTimes from "../DisplayTimes/DisplayTimes";
 import RemoveMealFromScheduleButton from "../RemoveMealFromScheduleButton/RemoveMealFromScheduleButton";
 
-const MealRow = ({
+interface MealRowBaseProps {
+  index: number;
+  href: string;
+  scheduleId: string | undefined;
+  meal: any;
+  getScheduledMeals: () => void;
+  scheduledMeals: any[];
+  fetchMeals: () => void;
+  removeMealFromSchedule: (id: number) => void;
+  isDelete?: boolean; // Optional prop to handle conditional behavior
+}
+
+const MealRow: React.FC<MealRowBaseProps> = ({
   scheduleId,
+  href: mealUrl,
   meal,
   getScheduledMeals,
   scheduledMeals,
@@ -22,8 +35,7 @@ const MealRow = ({
       </td>
       <td className="userMealsTd">
         <Link
-          href={meal && `/userMeal/${meal.id}/`}
-          to={meal && `/userMeal/${meal.id}/`}
+          to={meal && `/${mealUrl}/${meal.id}/`}
         >
           {" "}
           {meal.name}
@@ -55,7 +67,6 @@ const MealRow = ({
             ) : (
               <AddMealToScheduleButton
                 scheduleId={scheduleId}
-                scheduledMeals={scheduledMeals}
                 meal={meal}
                 getScheduledMeals={getScheduledMeals}
               />

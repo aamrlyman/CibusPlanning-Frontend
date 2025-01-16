@@ -22,7 +22,7 @@ const UserMealsList: React.FC = () => {
   const [meals, setMeals] = useState<Meal[]>([]);
   const [isDelete, setIsDelete] = useState(false);
   const [_,token] = useAuth();
-  const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] = useOutletContext<[Record<string,number>, Meal[], () => void, (mealId: number) => void]>();
+  const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] = useOutletContext<[Record<string,string>, Meal[], () => void, (id: number) => void]>();
 
   const fetchMeals = useCallback(async (): Promise<void> => {
     try {
@@ -61,7 +61,8 @@ const headers = [
           headers={headers}
           data={meals}
           renderRow={ (meal, index)=> 
-            <MealRow 
+            <MealRow
+            href="userMeal" 
             index={index}
             scheduleId = {schedule?.id}
             meal={meal}

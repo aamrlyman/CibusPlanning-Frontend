@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 interface MealRowProps<T> {
   item: T;
   renderColumns: (item: T) => React.ReactNode[];
-  actions?: React.ReactNode; // Additional actions or buttons (e.g., delete, add, etc.)
-  rowKey: string | number; // Unique key for the row
-  customClassName?: string; // Custom class for styling rows
+  actions?: React.ReactNode; 
+  rowKey: string | number; 
+  customClassName?: string; 
 }
 
 const GenericRow = <T,>({

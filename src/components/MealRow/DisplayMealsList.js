@@ -12,11 +12,12 @@ const DisplayMealsList = ({
   getScheduledMeals,
   scheduledMeals,
   removeMealFromSchedule,
+  index,
 }) => {
   const [user, token] = useAuth();
 
   return (
-    <tr>
+    <tr key={index}>
       <td className="allMealsTd">
         <IsScheduledIcon scheduledMeals={scheduledMeals} meal={meal} />
       </td>
@@ -24,7 +25,7 @@ const DisplayMealsList = ({
         <Link to={meal && `/meal/${meal.id}/`}> {meal.name}</Link>
       </td>
       <td className="allMealsTd">
-      {meal.url? (
+        {meal.url ? (
           <a href={meal.url}>
             <i className="fa-solid fa-arrow-up-right-from-square"></i>
           </a>

@@ -8,11 +8,14 @@ import MealsSearchBar from "../../components/MealsSearchBar/MealsSearchBar";
 import { sortMealsAlphabetically } from "../../utils/customfunctions";
 import GenericTable from "../../components/GenericTable/GenericTable";
 import MealRow from "../../components/MealRow/MealRow";
+import { Meal } from "../UserMealsList/UserMealsList";
+
+
 
 const AllMealsList = () => {
   const [schedule, scheduledMeals, getScheduledMeals, removeMealFromSchedule] =
-    useOutletContext();
-  const [meals, setMeals] = useState([]);
+    useOutletContext<[Record<string,string>, Meal[], () => void, (mealId: number) => void]>();
+  const [meals, setMeals] = useState<Meal[]>([]);
 
   useEffect(() => {
     fetchMeals();
@@ -24,7 +27,7 @@ const AllMealsList = () => {
       setMeals(sortedMeals);
       console.log(response.data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -40,12 +43,15 @@ const AllMealsList = () => {
         headers={headers}
         data={meals}
         renderRow={(meal, index) => (
-          <DisplayMealsList
+          <MealRow
+            href="meal"
+            index={index}
             scheduleId={schedule?.id}
             meal={meal}
             getScheduledMeals={getScheduledMeals}
             scheduledMeals={scheduledMeals}
             removeMealFromSchedule={removeMealFromSchedule}
+            fetchMeals={fetchMeals}
           />
         )}
       />
